@@ -19,4 +19,4 @@ export function Amin(props) {
   );
 }
 
-useGLTF.preload('/models/Amin.glb');
+useGLTF.preload('/Portfolio/models/Amin.glb');
