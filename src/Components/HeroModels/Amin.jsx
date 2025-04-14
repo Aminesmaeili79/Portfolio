@@ -7,7 +7,7 @@ import React from 'react';
 import { useGLTF } from '@react-three/drei';
 
 export function Amin(props) {
-  const { nodes, materials } = useGLTF('/models/Amin.glb');
+  const { nodes, materials } = useGLTF(`${import.meta.env.BASE_URL}models/Amin.glb`);
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -19,4 +19,4 @@ export function Amin(props) {
   );
 }
 
-useGLTF.preload('/Portfolio/models/Amin.glb');
+useGLTF.preload(`${import.meta.env.BASE_URL}models/Amin.glb`);
