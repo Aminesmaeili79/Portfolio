@@ -1,10 +1,13 @@
-import React from 'react'
-import Hero from './Sections/Hero.jsx'
-
+import React from 'react';
+import Hero from './Sections/Hero.jsx';
+import ShowCase from './Sections/ShowCase.jsx';
 
 const App = () => {
-    return (
-        <Hero/>
-    )
-}
-export default App
+  return (
+    <>
+      <Hero />
+      <ShowCase />
+    </>
+  );
+};
+export default App;

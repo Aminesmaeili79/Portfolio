@@ -2,6 +2,8 @@ import React from 'react';
 import { words } from '../Constants/index.js';
 import Button from '../Components/Button.jsx';
 import HeroModel from '../Components/HeroModels/HeroModel.jsx';
+import AnimatedCounter from '../Components/AnimatedCounter.jsx';
+
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 
@@ -56,7 +58,7 @@ const Hero = () => {
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
               Hi, I'm Amin. Web Developer And Coding Passionate Based In Cyprus 🇨🇾
             </p>
-            <Button className={'md:w-80 md:h-16 w-60 h-12'} text={'See My Work'} id="button" />
+            <Button className={'md:w-80 md:h-16 w-60 h-12'} text={'See My Work'} id={'counter'} />
           </div>
         </header>
         <figure>
@@ -65,6 +67,7 @@ const Hero = () => {
           </div>
         </figure>
       </div>
+      <AnimatedCounter />
     </section>
   );
 };
