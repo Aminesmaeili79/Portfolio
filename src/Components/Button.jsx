@@ -8,7 +8,6 @@ const Button = ({ text, className, id }) => {
 
         const view = document.getElementById(id);
         if (view && id) {
-          // const offset = window.innerHeight;
           const target = view.getBoundingClientRect().top + window.scrollY;
 
           window.scrollTo({

@@ -37,37 +37,34 @@ const counterItems = [
 
 const logoIconsList = [
   {
-    imgPath: `${import.meta.env.BASE_URL}images/logos/company-logo-1.png`,
+    imgPath: `${import.meta.env.BASE_URL}images/logos/react.svg`,
   },
   {
-    imgPath: `${import.meta.env.BASE_URL}images/logos/company-logo-2.png`,
+    imgPath: `${import.meta.env.BASE_URL}images/logos/nextjs.svg`,
   },
   {
-    imgPath: `${import.meta.env.BASE_URL}images/logos/company-logo-3.png`,
+    imgPath: `${import.meta.env.BASE_URL}images/logos/nodejs.svg`,
   },
   {
-    imgPath: `${import.meta.env.BASE_URL}images/logos/company-logo-4.png`,
+    imgPath: `${import.meta.env.BASE_URL}images/logos/express-js.svg`,
   },
   {
-    imgPath: `${import.meta.env.BASE_URL}images/logos/company-logo-5.png`,
+    imgPath: `${import.meta.env.BASE_URL}images/logos/typescript.svg`,
   },
   {
-    imgPath: `${import.meta.env.BASE_URL}images/logos/company-logo-6.png`,
+    imgPath: `${import.meta.env.BASE_URL}images/logos/tailwind-css.svg`,
   },
   {
-    imgPath: `${import.meta.env.BASE_URL}images/logos/company-logo-7.png`,
+    imgPath: `${import.meta.env.BASE_URL}images/logos/sass.svg`,
   },
   {
-    imgPath: `${import.meta.env.BASE_URL}images/logos/company-logo-8.png`,
+    imgPath: `${import.meta.env.BASE_URL}images/logos/csharp.svg`,
   },
   {
-    imgPath: `${import.meta.env.BASE_URL}images/logos/company-logo-9.png`,
+    imgPath: `${import.meta.env.BASE_URL}images/logos/mysql.svg`,
   },
   {
-    imgPath: `${import.meta.env.BASE_URL}images/logos/company-logo-10.png`,
-  },
-  {
-    imgPath: `${import.meta.env.BASE_URL}images/logos/company-logo-11.png`,
+    imgPath: `${import.meta.env.BASE_URL}images/logos/mongodb.png`,
   },
 ];
 
@@ -147,42 +144,40 @@ const techStackIcons = [
 
 const expCards = [
   {
-    review:
-      'Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.',
-    imgPath: `${import.meta.env.BASE_URL}images/exp1.png`,
-    logoPath: `${import.meta.env.BASE_URL}images/logo1.png`,
-    title: 'Frontend Developer',
-    date: 'January 2023 - Present',
+    review: 'Designed and developed beautiful UI/UX web applications for customers',
+    imgPath: `${import.meta.env.BASE_URL}images/upwork.png`,
+    logoPath: `${import.meta.env.BASE_URL}images/upwork-logo.png`,
+    title: 'Freelancer',
+    date: 'March 2025 - Present',
     responsibilities: [
-      'Developed and maintained user-facing features for the Hostinger website.',
-      'Collaborated closely with UI/UX designers to ensure seamless user experiences.',
-      'Optimized web applications for maximum speed and scalability.',
-    ],
-  },
-  {
-    review:
-      "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
-    imgPath: `${import.meta.env.BASE_URL}images/exp2.png`,
-    logoPath: `${import.meta.env.BASE_URL}images/logo2.png`,
-    title: 'Full Stack Developer',
-    date: 'June 2020 - December 2023',
-    responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      'Worked with backend engineers to integrate APIs seamlessly with the frontend.',
-      'Contributed to open-source projects that were used with the Docker ecosystem.',
-    ],
-  },
-  {
-    review:
-      'Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.',
-    imgPath: `${import.meta.env.BASE_URL}images/exp3.png`,
-    logoPath: `${import.meta.env.BASE_URL}images/logo3.png`,
-    title: 'React Native Developer',
-    date: 'March 2019 - May 2020',
-    responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      'Improved app performance and user experience through code optimization and testing.',
+      'Delivered high-quality projects on time and within budget by managing multiple assignments simultaneously.',
+      'Collaborated closely with diverse clients to understand their needs and provide tailored solutions that drove business success.',
       'Coordinated with the product team to implement features based on feedback.',
+    ],
+  },
+  {
+    review: 'Junior fullstack developer using ASP.NET Core, Razor Pages, and MERN stack',
+    imgPath: `${import.meta.env.BASE_URL}images/websure.png`,
+    logoPath: `${import.meta.env.BASE_URL}images/websure-logo.jpeg`,
+    title: 'Full Stack Developer',
+    date: 'August 2024 - Present',
+    responsibilities: [
+      'Implemented robust automatic payment system using PAN number which increased insurance companies efficiency by 80%.',
+      'Designed RESTful APIs to handle client-server communication, enabling seamless integration with frontend applications.',
+      'Utilized a variety of industry-standard tools and technologies to consistently meet or exceed client expectations.',
+    ],
+  },
+  {
+    review:
+      'Took the role of a backend .NET developer to implement and upgrade the UMS system as an intern',
+    imgPath: `${import.meta.env.BASE_URL}images/ozbul.png`,
+    logoPath: `${import.meta.env.BASE_URL}images/ozbul-logo.jpg`,
+    title: 'Intern Backend Developer',
+    date: 'June 2024 - August 2024',
+    responsibilities: [
+      'Developed and maintained robust backend solutions using ASP.NET Core 8.',
+      'Collaborated closely experienced senior backend developers to come up with the best practices and systems.',
+      'Optimized web applications security by implementing JWT and OAuth authorizations.',
     ],
   },
 ];
