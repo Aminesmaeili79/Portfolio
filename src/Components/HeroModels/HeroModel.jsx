@@ -21,10 +21,11 @@ const AutoAdjust = ({ modelRef }) => {
 const HeroModel = () => {
   const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const isExtraSmall = useMediaQuery({ query: '(max-width: 400px)' });
   const modelRef = useRef();
 
   // Calculate appropriate size based on screen
-  const canvasHeight = isMobile ? '300px' : isTablet ? '400px' : '500px';
+  const canvasHeight = isExtraSmall ? '200px' : isMobile ? '300px' : isTablet ? '400px' : '500px';
 
   return (
     <div

@@ -11,11 +11,11 @@ const LogoIcon = ({ icon }) => {
 
 const Logos = () => {
   return (
-    <div className="md:my-20 my-10 relative">
+    <div className="md:my-40 my-20 relative">
       <div className="gradient-edge" />
       <div className="gradient-edge" />
 
-      <div className="marquee h-52">
+      <div className="marquee h-24">
         <div className="marquee-container">
           <div className="marquee-box">
             {logoIconsList.map((icon, index) => (
