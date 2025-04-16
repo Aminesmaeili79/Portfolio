@@ -33,9 +33,14 @@ const NavBar = () => {
             ))}
           </ul>
         </nav>
-        <a href="#contact" className="contact-btn group">
+        <a
+          href={`${import.meta.env.BASE_URL}CV.pdf`}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="contact-btn group"
+        >
           <div className="inner">
-            <span>Contact me</span>
+            <span>Download My CV</span>
           </div>
         </a>
       </div>

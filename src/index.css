@@ -12,6 +12,7 @@ body {
     background-color: black;
     color: white;
     scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
     font-family: "Mona Sans", sans-serif;
 }
 
