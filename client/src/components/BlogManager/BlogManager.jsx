@@ -10,7 +10,7 @@ function BlogCard() {
 
     useEffect(() => {
         const fetchBlogs = async () => {
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/blogs`)
+            const response = await axios.get(`https://portfolio-ofdg.onrender.com/blogs`)
             setBlogs(response.data.data.blogs)
         }
 
