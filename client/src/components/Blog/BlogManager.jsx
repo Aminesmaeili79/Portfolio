@@ -1,4 +1,3 @@
-// client/src/components/Blog/BlogManager.jsx
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { blogPageContext } from "../contexts/BlogPageContext.jsx";

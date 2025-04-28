@@ -11,7 +11,6 @@ const Blogs = () => {
         const fetchLatestBlogs = async () => {
             try {
                 const response = await axios.get(`https://portfolio-ofdg.onrender.com/api/blogs`);
-                // Get only the 4 most recent blogs
                 setLatestBlogs(response.data.data.blogs.slice(0, 4));
             } catch (error) {
                 console.error('Error fetching blogs:', error);
@@ -21,8 +20,8 @@ const Blogs = () => {
     }, []);
 
     return (
-        <section className="section__blog w-[100vw] flex justify-between px-[12em] gap-8 mt-[16em]">
-            <div className="blog__redirection flex flex-col gap-4">
+        <section className="section__blog w-[100vw] flex md:flex-row flex-col items-center md:items-start text-center md:text-left justify-between xl:px-[12em] lg:px-[6em] md:px-[4em] px-[2em] gap-8 mt-[16em]">
+            <div className="blog__redirection flex flex-col items-center md:items-start gap-4">
                 <h2>Read my latest blogs</h2>
                 <p>Yes!!! I do love writing blogs about what I learn, my day to day improvements and what I find interesting :)</p>
                 <Link to="/blogs" className="w-fit">
@@ -30,7 +29,7 @@ const Blogs = () => {
                 </Link>
             </div>
             <div className="blog__recent">
-                <div className="blogs-recent grid gap-4 grid-cols-2 grid-rows-2">
+                <div className="blogs-recent grid gap-4 md:grid-cols-2 md:grid-rows-2 grid-cols-1">
                     {latestBlogs.map(blog => (
                         <BlogCard key={blog._id} blog={blog} />
                     ))}

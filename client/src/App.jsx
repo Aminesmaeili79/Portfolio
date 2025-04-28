@@ -5,9 +5,9 @@ import HomePage from "./components/Home/HomePage.jsx";
 import BlogPage from "./components/Blogs/BlogPage.jsx";
 import BlogsHome from "./components/Blogs/BlogsHome.jsx";
 import BlogEditor from "./components/Blogs/BlogEditor.jsx";
-import Login from "./components/Auth/Login.jsx";
-import Register from "./components/Auth/Register.jsx";
-import PrivateRoute from "./components/Auth/PrivateRoute.jsx";
+import Login from "./components/auth/Login.jsx";
+import Register from "./components/auth/Register.jsx";
+import PrivateRoute from "./components/auth/PrivateRoute.jsx";
 
 function App() {
     return (
