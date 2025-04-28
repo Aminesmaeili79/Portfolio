@@ -11,7 +11,6 @@ app.use(cors({
     credentials: true
 }));
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
@@ -20,12 +19,10 @@ app.use(express.static('public'));
 app.use('/api/blogs', blogRoutes);
 app.use('/api/auth', authRoutes);
 
-// Health check endpoint
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok' });
 });
 
-// Error handling
 app.use(errorHandler);
 
 module.exports = app;
