@@ -1,16 +1,35 @@
-import React, { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { blogPageContext } from "../contexts/BlogPageContext";
 import MDEditor from '@uiw/react-md-editor';
 import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 function BlogPage() {
-    const { blogPage } = useContext(blogPageContext);
+    const { blogPage, setBlogPage } = useContext(blogPageContext);
     const [isEditing, setIsEditing] = useState(false);
     const [content, setContent] = useState('');
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [currentUser, setCurrentUser] = useState(null);
     const [isSaving, setIsSaving] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const { id } = useParams();
+
+    useEffect(() => {
+        const fetchBlogData = async () => {
+            if (!blogPage) {
+                try {
+                    const response = await axios.get(`/api/blogs/${id}`);
+                    setBlogPage(response.data.data.blog);
+                } catch (error) {
+                    console.error('Error fetching blog:', error);
+                }
+            }
+            setLoading(false);
+        };
+
+        fetchBlogData();
+    }, [id, blogPage, setBlogPage]);
 
     useEffect(() => {
         const checkAuth = async () => {
@@ -39,7 +58,7 @@ function BlogPage() {
         }
     }, [blogPage]);
 
-    if (!blogPage) {
+    if (loading || !blogPage) {
         return <div>Loading...</div>;
     }
 
@@ -53,8 +72,8 @@ function BlogPage() {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
-            blogPage.content = content;
-            blogPage.updatedAt = new Date();
+            // Update the blog context with new content
+            setBlogPage(response.data.data.blog);
             setIsEditing(false);
         } catch (error) {
             console.error('Error saving blog:', error);
@@ -64,16 +83,22 @@ function BlogPage() {
         }
     };
 
-    const canEdit = isAuthenticated && currentUser?.id === blogPage.author._id;
+    // Fix: Handle cases where author might be undefined
+    const canEdit = isAuthenticated && currentUser?.id === (
+        blogPage.author?._id || blogPage.author
+    );
+
+    // Fix: Add fallbacks for author information
+    const authorName = blogPage.authorName || blogPage.author?.username || 'Unknown Author';
 
     return (
         <div className="flex flex-col items-center text-center p-6 w-full">
-            <div className="w-full mb-4">
+            <div className="flex items-center justify-between px-[16em] w-full mb-4">
                 <h1 className="text-3xl font-bold">{blogPage.title}</h1>
                 {canEdit && (
                     <button
                         onClick={() => setIsEditing(!isEditing)}
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                        className=" text-white px-4 py-2 rounded"
                     >
                         {isEditing ? 'Cancel' : 'Edit'}
                     </button>
@@ -82,7 +107,7 @@ function BlogPage() {
 
             <h4 className="font-extralight italic mb-4">
                 Last updated: {formatDate(blogPage.updatedAt || blogPage.createdAt)}&nbsp;&nbsp;&nbsp;by&nbsp;&nbsp;&nbsp;
-                <a href="">{blogPage.authorName || blogPage.author?.username}</a>
+                <a href="">{authorName}</a>
             </h4>
 
             <div className="blog-content mt-[4em] mb-[2em] w-full">
@@ -113,7 +138,7 @@ function BlogPage() {
             </div>
 
             <div className="flex gap-2 mt-4">
-                {blogPage.tags.map((tag, index) => (
+                {blogPage.tags?.map((tag, index) => (
                     <a className="cursor-pointer px-2 py-1" key={index}>
                         {tag}
                     </a>
