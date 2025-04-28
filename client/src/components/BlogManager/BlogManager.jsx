@@ -10,7 +10,7 @@ function BlogCard() {
 
     useEffect(() => {
         const fetchBlogs = async () => {
-            const response = await axios.get(`https://portfolio-ofdg.onrender.com/blogs`)
+            const response = await axios.get(`https://portfolio-ofdg.onrender.com/api/blogs`)
             setBlogs(response.data.data.blogs)
         }
 
