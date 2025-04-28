@@ -17,8 +17,8 @@ const ProjectCard = ({direction, img, title, ghLink, liveLink, info, blog, techS
                     className={direction === 'col' ? 'w-full h-48 object-cover rounded-t-2xl' : 'w-[20em] h-full object-cover rounded-l-2xl'}
                 />
             </div>
-            <div className={`project__desc flex flex-col p-6 gap-2 ${direction === 'col' ? 'flex-1' : ''}`}>
-                <div className="project__heading flex justify-between items-center gap-8">
+            <div className={`project__desc flex flex-col xl:p-8 lg:p-6 md:p-4 p-2 gap-2 ${direction === 'col' ? 'flex-1' : ''}`}>
+                <div className="project__heading flex justify-between items-center">
                     <h3>{title}</h3>
                     <div className="project__links flex gap-2 items-center">
                         { ghLink ?

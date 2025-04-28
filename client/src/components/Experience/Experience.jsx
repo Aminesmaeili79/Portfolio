@@ -30,11 +30,11 @@ const experiences = [
 
 const Experience = () => {
     return (
-        <div className="font-bold mt-[16em] flex flex-col gap-12 items-center">
+        <div className="font-bold w-[100vw] mt-[16em] flex flex-col gap-12 items-center">
             <h2>Experience</h2>
-            <section className="px-[16em] grid grid-cols-3 gap-4">
+            <section className="xl:px-[16em] lg:px-[8em] md:px-[4em] px-[2em] flex flex-col lg:grid lg:grid-cols-3 gap-4">
                 {experiences.map(experience => (
-                    <div className="bg-[#31343D] p-6 rounded-lg experience flex flex-col">
+                    <div className="bg-[#31343D] xl:p-6 lg:p-4 md:p-6 p-4 rounded-lg experience flex flex-col">
                             <h2>{experience.company}</h2>
                         <h3 className="exp-position font-regular mb-1">{experience.position}</h3>
                             <div className="company flex justify-between items-center mb-[2em]">

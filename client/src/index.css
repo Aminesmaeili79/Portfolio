@@ -473,6 +473,8 @@
   color: rgba(255, 255, 255, 0.95);
   background-color: rgb(28, 30, 38);
 
+  scroll-behavior: smooth;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
