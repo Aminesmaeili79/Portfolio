@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
@@ -91,7 +92,7 @@ const Navbar = () => {
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="">Blog</a>
+                                    <Link to="/blogs">Blog</Link>
                                 </li>
                                 <li>
                                     <a href="">My CV</a>
