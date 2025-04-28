@@ -25,7 +25,7 @@ exports.getBlog = async (req, res) => {
         if (!blog) {
             return res.status(404).json({
                 status: 'error',
-                message: 'BlogManager not found'
+                message: 'Blog not found'
             });
         }
         res.status(200).json({
@@ -67,7 +67,7 @@ exports.updateBlog = async (req, res) => {
         if (!blog) {
             return res.status(404).json({
                 status: 'error',
-                message: 'BlogManager not found'
+                message: 'Blog not found'
             });
         }
 
@@ -104,7 +104,7 @@ exports.deleteBlog = async (req, res) => {
         if (!blog) {
             return res.status(404).json({
                 status: 'error',
-                message: 'BlogManager not found'
+                message: 'Blog not found'
             });
         }
 

@@ -1,16 +1,32 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        setIsAuthenticated(!!token);
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setIsAuthenticated(false);
+        navigate('/');
+    };
 
     const handleHamburgerOpen = () => {
         setIsHamburgerOpen(prev => !prev)
     }
 
     const darkMode = true;
+
     return (
         <nav className="text-[#dffffd] w-[100vw] px-[4em] py-[2em] md:px-[8em] md:py-[2em] lg:px-[16em] lg:py-[4em] flex gap-8 justify-between items-center">
-            <div className="nav__logo font-extrabold italic">Amin Esmaeili</div>
+            <Link to="/" className="nav__logo font-extrabold italic">Amin Esmaeili</Link>
             <div className="flex justify-between items-center gap-8 nav__links">
                 <div className="hidden md:flex gap-2 socials">
                     <a href="" className="github">
@@ -33,8 +49,20 @@ const Navbar = () => {
                     </a>
                 </div>
                 <div className="hidden md:flex justify-between gap-8 items-center links__redirect">
-                    <a href="">Blog</a>
+                    <Link to="/blogs">Blog</Link>
                     <a href="">My CV</a>
+                    {isAuthenticated ? (
+                        <button onClick={handleLogout} className="text-red-400 hover:text-red-300">
+                            Logout
+                        </button>
+                    ) : (
+                        <>
+                            <Link to="/login" className="hover:text-[#1ac9c6]">Login</Link>
+                            <Link to="/register" className="bg-[#128d8a] px-4 py-2 rounded-full hover:bg-[#0f6b69]">
+                                Register
+                            </Link>
+                        </>
+                    )}
                 </div>
                 <button className="dark-mode">
                     {darkMode ?

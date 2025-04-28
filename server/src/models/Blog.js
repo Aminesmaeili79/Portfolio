@@ -47,5 +47,5 @@ blogSchema.pre('save', function(next) {
     next();
 });
 
-const Blog = mongoose.model('BlogManager', blogSchema);
+const Blog = mongoose.model('Blog', blogSchema);
 module.exports = Blog;
