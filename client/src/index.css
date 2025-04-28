@@ -1,0 +1,570 @@
+@import "tailwindcss";
+
+/* DRUK WIDE - ALL WEIGHTS AND STYLES */
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-ThinItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-LightItalic-Trial.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-Regular-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-Italic-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-Medium-Trial.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-MediumItalic-Trial.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-Bold-Trial.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-BoldItalic-Trial.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-Heavy-Trial.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-HeavyItalic-Trial.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-Super-Trial.otf') format('opentype');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('./fonts/DrukWide-SuperItalic-Trial.otf') format('opentype');
+  font-weight: 950;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* DRUK TEXT - ALL WEIGHTS AND STYLES */
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-Thin-Trial.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-ThinItalic-Trial.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-Light-Trial.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-LightItalic-Trial.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-Regular-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-Italic-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-Medium-Trial.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-MediumItalic-Trial.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-Bold-Trial.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-BoldItalic-Trial.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-Heavy-Trial.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-HeavyItalic-Trial.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-Super-Trial.otf') format('opentype');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Text';
+  src: url('./fonts/DrukText-SuperItalic-Trial.otf') format('opentype');
+  font-weight: 950;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* DRUK CONDENSED - ALL WEIGHTS AND STYLES */
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-Thin-Trial.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-ThinItalic-Trial.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-Light-Trial.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-LightItalic-Trial.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-Regular-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-Italic-Trial.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-Medium-Trial.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-MediumItalic-Trial.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-Bold-Trial.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-BoldItalic-Trial.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-Heavy-Trial.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-HeavyItalic-Trial.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-Super-Trial.otf') format('opentype');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Druk Condensed';
+  src: url('./fonts/DrukCondensed-SuperItalic-Trial.otf') format('opentype');
+  font-weight: 950;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* UTILITY CLASSES */
+.druk-wide {
+  font-family: 'Druk Wide', sans-serif;
+}
+
+.druk-text {
+  font-family: 'Druk Text', sans-serif;
+}
+
+.druk-condensed {
+  font-family: 'Druk Condensed', sans-serif;
+}
+
+/* Font Weights */
+.font-thin {
+  font-weight: 100;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-heavy {
+  font-weight: 900;
+}
+
+.font-super {
+  font-weight: 950;
+}
+
+/* Font Styles */
+.italic {
+  font-style: italic;
+}
+
+/* Example usage classes */
+.druk-heading-1 {
+  font-family: 'Druk Wide', sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.druk-heading-2 {
+  font-family: 'Druk Wide', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.druk-heading-3 {
+  font-family: 'Druk Text', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+.druk-heading-4 {
+  font-family: 'Druk Text', sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.druk-body {
+  font-family: 'Druk Text', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.druk-caption {
+  font-family: 'Druk Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* Responsive Typography */
+@media (max-width: 1024px) {
+  .druk-heading-1 {
+    font-size: 2.5rem;
+  }
+
+  .druk-heading-2 {
+    font-size: 2rem;
+  }
+
+  .druk-heading-3 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .druk-heading-1 {
+    font-size: 2rem;
+  }
+
+  .druk-heading-2 {
+    font-size: 1.75rem;
+  }
+
+  .druk-heading-3 {
+    font-size: 1.5rem;
+  }
+
+  .druk-heading-4 {
+    font-size: 1.25rem;
+  }
+}
+
+:root {
+  font-family: "Druk Text", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgb(28, 30, 38);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  /*color: var(--color-blue-200);*/
+  color: #dffffd;
+  text-decoration: inherit;
+  transition: all .2s;
+}
+
+a:hover {
+  color: #1ac9c6;
+}
+
+body {
+  position: relative;
+  margin: 0 auto;
+  max-width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
+  z-index: -10;
+}
+
+nav, li {
+  svg {
+    width: 25px;
+    height: 25px;
+
+    &:hover {
+      filter: drop-shadow(0px 0px 2px #128d8a);
+    }
+  }
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.4em;
+}
+
+h3 {
+  font-size: 1.6em;
+}
+
+p {
+  /*font-size: .8em;*/
+}
+
+button {
+  border-radius: 2em;
+  border: 1px solid transparent;
+  padding: .4em 4em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #20676E;
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  &:hover {
+    border-color: #646cff;
+  }
+
+  &:focus, &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+}
+
+.dark-mode {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  outline: none;
+
+  svg {
+    stroke: #dffffd;
+  }
+}
+
+.github,
+.linkedin {
+  fill: #dffffd;
+
+  &:hover {
+    fill: #1ac9c6;
+    filter: drop-shadow(0px 0px 2px #128d8a);
+  }
+}

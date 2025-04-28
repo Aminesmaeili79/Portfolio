@@ -1,0 +1,14 @@
+.company h3 {
+    font-size: .8rem;
+}
+
+.experience {
+    h4 {
+        color: #ccc;
+        font-size: .8rem;
+    }
+
+    .exp-position {
+        font-size: 1.4rem;
+    }
+}

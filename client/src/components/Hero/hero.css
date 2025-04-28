@@ -1,0 +1,49 @@
+.hero {
+    left: 0;
+    width: 100vw;
+    /*height: 50vh;*/
+
+    svg {
+        position: absolute;
+        transform: rotate(180deg);
+    }
+}
+.hero__waves {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    z-index: -50;
+}
+
+.hero__button {
+    font-size: 1.2rem;
+    color: #222;
+    background-color: #128d8a;
+    outline: none;
+    border: none;
+    transition: all .2s;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 10px 2px #128d8a77;
+    }
+}
+
+.hero__button__2 {
+    color: #222;
+    background-color: #ac59b7;
+    &:hover {
+        box-shadow: 0 0 10px 2px #ac59b777;
+    }
+}
+
+.hero__button__3 {
+    color: #ac59b7;
+    background-color: #202030;
+    border: 1px solid #ac59b7aa;
+    &:hover {
+        box-shadow: 0 0 10px 2px #ac59b777;
+        border-color: #ac59b7aa;
+    }
+}
