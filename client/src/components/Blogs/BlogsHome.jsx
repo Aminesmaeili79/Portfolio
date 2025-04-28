@@ -20,7 +20,7 @@ const BlogsHome = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get('/api/blogs');
+                const response = await axios.get('https://portfolio-ofdg.onrender.com/api/blogs');
                 const blogsData = response.data.data.blogs;
                 setBlogs(blogsData);
                 setFilteredBlogs(blogsData);

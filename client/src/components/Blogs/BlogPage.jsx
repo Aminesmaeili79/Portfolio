@@ -19,7 +19,7 @@ function BlogPage() {
         const fetchBlogData = async () => {
             if (!blogPage) {
                 try {
-                    const response = await axios.get(`/api/blogs/${id}`);
+                    const response = await axios.get(`https://portfolio-ofdg.onrender.com/api/blogs/${id}`);
                     setBlogPage(response.data.data.blog);
                 } catch (error) {
                     console.error('Error fetching blog:', error);
@@ -36,7 +36,7 @@ function BlogPage() {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await axios.get('/api/auth/current-user', {
+                    const response = await axios.get('https://portfolio-ofdg.onrender.com/api/auth/current-user', {
                         headers: { Authorization: `Bearer ${token}` }
                     });
                     setCurrentUser(response.data.data.user);
@@ -66,7 +66,7 @@ function BlogPage() {
         setIsSaving(true);
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.patch(`/api/blogs/${blogPage._id}`, {
+            const response = await axios.patch(`https://portfolio-ofdg.onrender.com/api/blogs/${blogPage._id}`, {
                 content: content
             }, {
                 headers: { Authorization: `Bearer ${token}` }

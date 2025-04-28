@@ -21,7 +21,7 @@ const BlogEditor = () => {
             const token = localStorage.getItem('token');
             const tagsArray = tags.split(',').map(tag => tag.trim()).filter(tag => tag !== '');
 
-            const response = await axios.post('/api/blogs', {
+            const response = await axios.post('https://portfolio-ofdg.onrender.com/api/blogs', {
                 title,
                 description,
                 content,
