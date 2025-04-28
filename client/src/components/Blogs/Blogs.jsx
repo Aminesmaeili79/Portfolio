@@ -10,7 +10,7 @@ const Blogs = () => {
     useEffect(() => {
         const fetchLatestBlogs = async () => {
             try {
-                const response = await axios.get('/api/blogs');
+                const response = await axios.get(`https://portfolio-ofdg.onrender.com/api/blogs`);
                 // Get only the 4 most recent blogs
                 setLatestBlogs(response.data.data.blogs.slice(0, 4));
             } catch (error) {

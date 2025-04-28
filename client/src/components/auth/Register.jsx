@@ -12,7 +12,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/api/auth/register', { username, email, password });
+            const response = await axios.post('https://portfolio-ofdg.onrender.com/api/auth/register', { username, email, password });
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('user', JSON.stringify(response.data.data.user));
             navigate('/blogs');
