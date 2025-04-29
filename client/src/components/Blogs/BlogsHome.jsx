@@ -53,14 +53,14 @@ const BlogsHome = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-[#1c1e26] py-12 px-4 flex items-center justify-center">
+            <div className="min-h-screen bg-[#1c1e26] py-[16em] px-4 flex items-start justify-center w-[100vw]">
                 <div className="text-white">Loading...</div>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-[#1c1e26] py-12 px-4">
+        <div className="min-h-screen bg-[#1c1e26] py-12 px-4 w-[100vw]">
             <div className="max-w-7xl mx-auto">
                 <div className="flex justify-between items-center mb-8">
                     <h1 className="text-4xl font-bold text-white">All Blogs</h1>
@@ -81,7 +81,7 @@ const BlogsHome = () => {
                             <button
                                 key={index}
                                 onClick={() => handleTagClick(tag)}
-                                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                                className={`px-4 rounded-full text-sm font-medium transition-colors ${
                                     selectedTag === tag
                                         ? 'bg-[#128d8a] text-white'
                                         : 'bg-[#31343D] text-gray-300 hover:bg-[#128d8a] hover:text-white'
