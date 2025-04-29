@@ -10,5 +10,5 @@ export default defineConfig({
       '/api': 'http://localhost:8080'
     },
   },
-  base: "/Portfolio-New/"
+  base: "/Portfolio/"
 })
