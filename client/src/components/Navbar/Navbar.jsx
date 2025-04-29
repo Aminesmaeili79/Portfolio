@@ -93,14 +93,14 @@ const Navbar = () => {
                     }
                     {isHamburgerOpen ?
                         <>
-                            <div className="opacity-100 absolute right-16 top-0 translate-y-[100%] z-[110]" onClick={handleHamburgerOpen}>
+                            <ul className="opacity-90 fixed overflow-hidden text-[2rem] flex flex-col items-center justify-center gap-[2em] bg-[rgb(28,30,38)]  w-[100vw] h-[100vh] inset-0 transition-all duration-300 z-[100]">
+                            <div className="opacity-100 absolute right-16 top-8 z-[110]" onClick={handleHamburgerOpen}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="#dffffd" viewBox="0 0 24 24" stroke-width="1.5"
                                      stroke="currentColor" className="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
                                 </svg>
 
                             </div>
-                            <ul className="opacity-90 fixed overflow-hidden text-[2rem] flex flex-col items-center justify-center gap-[2em] bg-[rgb(28,30,38)]  w-[100vw] h-[100vh] inset-0 transition-all duration-300 z-[100]">
                                 <li>
                                     <div className="socials flex gap-4">
                                         <a className="github" href="https://github.com/aminesmaeili79">
