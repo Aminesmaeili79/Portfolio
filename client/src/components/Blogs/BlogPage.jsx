@@ -4,6 +4,7 @@ import MDEditor from '@uiw/react-md-editor';
 import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import "./blogs.css"
 
 function BlogPage() {
     const { blogPage, setBlogPage } = useContext(blogPageContext);
@@ -72,7 +73,6 @@ function BlogPage() {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
-            // Update the blog context with new content
             setBlogPage(response.data.data.blog);
             setIsEditing(false);
         } catch (error) {
@@ -83,17 +83,15 @@ function BlogPage() {
         }
     };
 
-    // Fix: Handle cases where author might be undefined
     const canEdit = isAuthenticated && currentUser?.id === (
         blogPage.author?._id || blogPage.author
     );
 
-    // Fix: Add fallbacks for author information
     const authorName = blogPage.authorName || blogPage.author?.username || 'Unknown Author';
 
     return (
-        <div className="flex flex-col items-center text-center p-6 w-full">
-            <div className="flex items-center justify-between px-[16em] w-full mb-4">
+        <div className="flex flex-col items-center text-center py-[4em] md:py-[8em] px-[1em] md:px-[8em] w-[100vw]">
+            <div className="flex items-center justify-between mb-4">
                 <h1 className="text-3xl font-bold">{blogPage.title}</h1>
                 {canEdit && (
                     <button
@@ -131,7 +129,7 @@ function BlogPage() {
                         </div>
                     </div>
                 ) : (
-                    <div className="prose max-w-none">
+                    <div className="blog-content text-left prose max-w-none text-[16px] md:text-[24px]">
                         <ReactMarkdown>{content}</ReactMarkdown>
                     </div>
                 )}

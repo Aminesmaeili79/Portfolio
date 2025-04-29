@@ -12,3 +12,7 @@
         box-shadow: 0 3px 7px -3px #128d8a;
     }
 }
+
+.blog-content {
+    line-height: 2.8;
+}
