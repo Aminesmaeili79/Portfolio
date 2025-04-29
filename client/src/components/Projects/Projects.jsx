@@ -31,6 +31,7 @@ const Projects = () => {
                     <div className="col-span-1 row-span-2">
                         <ProjectCard
                             direction={`${screenWidth > 1025 ? 'col' : screenWidth < 600 ? 'col' : 'row'}`}
+                            // direction="col"
                             img={`${import.meta.env.BASE_URL}project-2.png`}
                             title="NASA Asset Finder"
                             ghLink="https://www.github.com/Aminesmaeili79/NASA-Project.git"

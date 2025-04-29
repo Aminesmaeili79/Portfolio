@@ -473,6 +473,8 @@
   color: rgba(255, 255, 255, 0.95);
   background-color: rgb(28, 30, 38);
 
+  overflow-x: hidden;
+
   scroll-behavior: smooth;
 
   font-synthesis: none;
