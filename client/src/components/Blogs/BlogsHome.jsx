@@ -63,7 +63,7 @@ const BlogsHome = () => {
         <div className="min-h-screen bg-[#1c1e26] py-12 px-4 w-[100vw]">
             <div className="max-w-7xl mx-auto">
                 <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-4xl font-bold text-white">All Blogs</h1>
+                    <h1 className="text-4xl font-bold text-white text-center w-full">All Blogs</h1>
                     {isAuthenticated && (
                         <Link
                             to="/create-blog"
@@ -74,7 +74,6 @@ const BlogsHome = () => {
                     )}
                 </div>
 
-                {/* Tags Filter */}
                 {allTags.length > 0 && (
                     <div className="mb-8 flex flex-wrap gap-2 justify-center">
                         {allTags.map((tag, index) => (
@@ -93,7 +92,6 @@ const BlogsHome = () => {
                     </div>
                 )}
 
-                {/* Blog Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredBlogs.map(blog => (
                         <BlogCard key={blog._id} blog={blog} />

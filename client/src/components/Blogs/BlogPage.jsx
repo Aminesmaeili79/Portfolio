@@ -3,7 +3,7 @@ import { blogPageContext } from "../contexts/BlogPageContext";
 import MDEditor from '@uiw/react-md-editor';
 import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import {redirect, useParams} from 'react-router-dom';
 import "./blogs.css"
 
 function BlogPage() {
@@ -31,6 +31,8 @@ function BlogPage() {
 
         fetchBlogData();
     }, [id, blogPage, setBlogPage]);
+
+
 
     useEffect(() => {
         const checkAuth = async () => {
@@ -129,15 +131,16 @@ function BlogPage() {
                         </div>
                     </div>
                 ) : (
-                    <div className="blog-content text-left prose max-w-none text-[16px] md:text-[24px]">
+                    <div className="blog-content text-left prose max-w-none text-[16px] md:text-[24px] bg-gray-700 rounded-lg p-2 md:p-6 lg:p-12 xl:p-16">
                         <ReactMarkdown>{content}</ReactMarkdown>
                     </div>
                 )}
             </div>
 
-            <div className="flex gap-2 mt-4">
+            <div className="flex items-baseline gap-2 mt-4">
+                tags:
                 {blogPage.tags?.map((tag, index) => (
-                    <a className="cursor-pointer px-2 py-1" key={index}>
+                    <a className="px-2 py-1" key={index}>
                         {tag}
                     </a>
                 ))}

@@ -24,6 +24,7 @@ const Blogs = () => {
             <div className="blog__redirection flex flex-col items-center md:items-start gap-4">
                 <h2>Read my latest blogs</h2>
                 <p>Yes!!! I do love writing blogs about what I learn, my day to day improvements and what I find interesting :)</p>
+                <p className="text-[#ac59b7] mb-6">p.s. You can also <span className="text-[#128d8a] underline"><Link to="/register">register</Link></span> and write a blog too.</p>
                 <Link to="/blogs" className="w-fit">
                     <button>View more</button>
                 </Link>
