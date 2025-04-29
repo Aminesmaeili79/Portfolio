@@ -10,7 +10,7 @@ const Projects = () => {
     },[document.documentElement.getBoundingClientRect().width]);
 
     return (
-            <section className="relative flex flex-col items-center w-[100vw] xl:px-[12em] lg:px-[8em] md:px-[4em] px-[1em] mt-[8em]">
+            <section id="projects" className="relative flex flex-col items-center w-[100vw] xl:px-[12em] lg:px-[8em] md:px-[4em] px-[1em] mt-[8em]">
                 <div className="projects__heading">
                     <h2 className="font-bold">Projects</h2>
                 </div>

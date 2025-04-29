@@ -1,6 +1,8 @@
 import React from 'react';
 import './hero.css';
 import AnimatedWaves from "../Waves/AnimatedWaves.jsx";
+import {Link} from "react-router-dom";
+import BlogsHome from "../Blogs/BlogsHome.jsx";
 
 const Hero = () => {
     return (
@@ -15,9 +17,9 @@ const Hero = () => {
                     <h3 className="self-end italic font-extralight">And I do it cuz I love coding!</h3>
                 </div>
                 <div className="hidden md:mt-24 md:flex md:gap-4">
-                    <button className="hero__button">Projects</button>
-                    <button className="hero__button hero__button__2">Blog</button>
-                    <button className="hero__button hero__button__3">Resume</button>
+                    <button className="hero__button"><a href="projects">Projects</a></button>
+                    <button className="hero__button hero__button__2"><Link to="/blogs" >Blog</Link></button>
+                    <button className="hero__button hero__button__3"><a target="_blank" href={`${import.meta.env.BASE_URL}cv.pdf`}>Resume</a></button>
                 </div>
             </div>
         </main>
