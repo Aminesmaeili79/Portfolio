@@ -10,7 +10,7 @@ const About = () => {
         <section className="mt-[6em] md:mt-[12em] flex flex-col items-center w-[100vw] px-[4em] md:px-[24em]">
             <div className="flex flex-col items-center md:flex-row justify-between gap-16">
                 <div className="about order-2 md:order-1">
-                    <h2 className="font-bold">I'm a developer aiming to bring innovation and <span className="relative text-[#bf59bb]"><SparklesPreview/>spark</span> into digital world</h2>
+                    <h2 className="font-bold">I'm a developer aiming to bring innovation and <span className="relative text-[#bf59bb] -z-10"><SparklesPreview/>spark</span> into digital world</h2>
                     <p>In my honest opinion, an application must be flawless -- for both devs and users -- and solve the daily problems easily.</p>
                 </div>
                 <div className="avatar order-1 md:order-2 w-[200px] md:w-[400px]">
