@@ -1,9 +1,7 @@
-// client/src/components/Layout/Layout.jsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-import CreateBlogButton from '../Blogs/CreateBlogButton';
 
 function Layout() {
     return (
@@ -13,7 +11,6 @@ function Layout() {
                 <Outlet />
             </main>
             <Footer />
-            <CreateBlogButton />
         </div>
     );
 }

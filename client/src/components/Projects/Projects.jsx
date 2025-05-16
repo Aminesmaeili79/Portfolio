@@ -10,7 +10,7 @@ const Projects = () => {
     },[document.documentElement.getBoundingClientRect().width]);
 
     return (
-            <section id="projects" className="relative flex flex-col items-center w-[100vw] xl:px-[12em] lg:px-[8em] md:px-[4em] px-[1em] mt-[8em]">
+            <section id="projects" className="relative flex flex-col items-center w-[100vw] xl:px-[12em] lg:px-[8em] md:px-[4em] px-[1em] mt-[16em]">
                 <div className="projects__heading">
                     <h2 className="font-bold">Projects</h2>
                 </div>
@@ -23,7 +23,6 @@ const Projects = () => {
                             ghLink="https://www.github.com/Aminesmaeili79/Portfolio-New.git"
                             liveLink="https://aminesmaeili79.github.io/Portfolio-New/"
                             info="This project was aimed to create a minimalist and simple, though decent-looking portfolio, designed from scratch to showcase my styling skills."
-                            blog="Read Blog"
                             techStack={["MERN", "TailwindCSS"]}
                         />
                     </div>
@@ -36,7 +35,6 @@ const Projects = () => {
                             ghLink="https://www.github.com/Aminesmaeili79/NASA-Project.git"
                             liveLink="https://aminesmaeili79.github.io/NASA-Project/"
                             info="A simple project to call the NASA's video, image and audio files and provide the content for the user."
-                            blog="Read Blog"
                             techStack={["React", "API"]}
                         />
                     </div>
@@ -49,7 +47,6 @@ const Projects = () => {
                             ghLink="https://www.github.com/Aminesmaeili79/EUgration.git"
                             liveLink="https://aminesmaeili79.github.io/EUgration/"
                             info="Immigration/Job-seeking landing-page for expats to have a better life in Europe or Spain (exclusively)."
-                            blog="Read Blog"
                             techStack={["Next.js", "AceternityUI", "shadcn/ui"]}
                         />
                     </div>
@@ -61,7 +58,6 @@ const Projects = () => {
                             ghLink="https://www.github.com/Aminesmaeili79/Portfolio.git"
                             liveLink="https://aminesmaeili79.github.io/Portfolio/"
                             info="This project was aimed to create a minimalist and simple, though decent-looking portfolio, designed from scratch to showcase my styling skills."
-                            blog="Read Blog"
                             techStack={["React", "GSAP", "Three.js"]}
                         />
                     </div>

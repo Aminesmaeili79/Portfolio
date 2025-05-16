@@ -1,28 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 
 const Navbar = () => {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        setIsAuthenticated(!!token);
-    }, []);
-
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        setIsAuthenticated(false);
-        navigate('/');
-    };
 
     const handleHamburgerOpen = () => {
         setIsHamburgerOpen(prev => !prev)
     }
-
-    const darkMode = true;
 
     return (
         <nav className="text-[#dffffd] w-[100vw] px-[4em] py-[2em] md:px-[8em] md:py-[2em] lg:px-[16em] lg:py-[4em] flex gap-8 justify-between items-center">
@@ -45,39 +28,12 @@ const Navbar = () => {
                             <path stroke-linecap="round" stroke-linejoin="round"
                                   d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
                         </svg>
-
                     </a>
                 </div>
                 <div className="hidden md:flex justify-between gap-8 items-center links__redirect">
-                    <Link to="/blogs">Blog</Link>
-                    <a href="">My CV</a>
-                    {isAuthenticated ? (
-                        <button onClick={handleLogout} className="text-red-400 hover:text-red-300">
-                            Logout
-                        </button>
-                    ) : (
-                        <>
-                            <Link to="/login" className="hover:text-[#1ac9c6]">Login</Link>
-                            <Link to="/register" className="bg-[#128d8a] px-4 py-2 rounded-full hover:bg-[#0f6b69]">
-                                Register
-                            </Link>
-                        </>
-                    )}
+                    <a href="https://blog-aminesmaeili79s-projects.vercel.app/">Blog</a>
+                    <a target="_blank" href={`${import.meta.env.BASE_URL}cv.pdf`}>My CV</a>
                 </div>
-                {/*<button className="dark-mode">*/}
-                {/*    {darkMode ?*/}
-                {/*        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"*/}
-                {/*             stroke="currentColor" className="size-6">*/}
-                {/*            <path stroke-linecap="round" stroke-linejoin="round"*/}
-                {/*                  d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>*/}
-                {/*        </svg>*/}
-                {/*        : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"*/}
-                {/*               stroke="currentColor" className="size-6">*/}
-                {/*            <path stroke-linecap="round" stroke-linejoin="round"*/}
-                {/*                  d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>*/}
-                {/*        </svg>*/}
-                {/*    }*/}
-                {/*</button>*/}
                 <div className="hamburger flex flex-col md:hidden">
                     {!isHamburgerOpen ?
                         <div className="" onClick={handleHamburgerOpen}>
@@ -119,10 +75,10 @@ const Navbar = () => {
                                     </div>
                                 </li>
                                 <li>
-                                    <Link to="/blogs">Blog</Link>
+                                    <a href="https://blog-aminesmaeili79s-projects.vercel.app/">Blog</a>
                                 </li>
                                 <li>
-                                    <a href={`${import.meta.env.BASE_URL}cv.pdf`}>My CV</a>
+                                    <a target="_blank" href={`${import.meta.env.BASE_URL}cv.pdf`}>My CV</a>
                                 </li>
                             </ul>
                         </>
@@ -156,11 +112,11 @@ const Navbar = () => {
                         </div>
                         </li>
                         <li>
-                        <Link to="/blogs">Blog</Link>
+                        <a href="https://blog-aminesmaeili79s-projects.vercel.app/">Blog</a>
                         </li>
-                        <li>
-                        <a href={`${import.meta.env.BASE_URL}cv.pdf`}>My CV</a>
-            </li>
+                            <li>
+                                <a target="_blank" href={`${import.meta.env.BASE_URL}cv.pdf`}>My CV</a>
+                            </li>
         </ul>
 </>
                     }

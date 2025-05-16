@@ -30,7 +30,7 @@ const experiences = [
 
 const Experience = () => {
     return (
-        <div className="font-bold w-[100vw] mt-[16em] flex flex-col gap-12 items-center">
+        <div className="font-bold w-[100vw] mt-[24em] flex flex-col gap-12 items-center">
             <h2>Experience</h2>
             <section className="xl:px-[16em] lg:px-[8em] md:px-[4em] px-[2em] flex flex-col lg:grid lg:grid-cols-3 gap-4">
                 {experiences.map(experience => (

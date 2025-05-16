@@ -8,9 +8,7 @@ import { HashRouter } from "react-router-dom";
 createRoot(document.getElementById('root')).render(
     <StrictMode>
         <HashRouter>
-            <BlogPageProvider>
                 <App />
-            </BlogPageProvider>
         </HashRouter>
-    </StrictMode>,
+    </StrictMode>
 )

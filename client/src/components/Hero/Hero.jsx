@@ -1,11 +1,24 @@
-import React from 'react';
+"use client"; // Add this at the top of the file
+
+import React, { useEffect, useState } from 'react';
 import './hero.css';
 import AnimatedWaves from "../Waves/AnimatedWaves.jsx";
-import {Link} from "react-router-dom";
-import BlogsHome from "../Blogs/BlogsHome.jsx";
 
 const Hero = () => {
-    const projects = document.getElementById("projects")
+    // Use state to store the projects element reference
+    const [resumeUrl, setResumeUrl] = useState('/cv.pdf'); // Default URL, adjust as needed
+
+    // Handle the scroll function
+    const scrollToProjects = () => {
+        const projectsSection = document.getElementById("projects");
+        if (projectsSection) {
+            window.scrollTo({
+                top: projectsSection.offsetTop,
+                behavior: "smooth"
+            });
+        }
+    };
+
     return (
         <main className="hero flex flex-col justify-center items-center">
             <div className="hero__waves">
@@ -18,17 +31,19 @@ const Hero = () => {
                     <h3 className="self-end italic font-extralight">And I do it cuz I love coding!</h3>
                 </div>
                 <div className="hidden md:mt-24 md:flex md:gap-4">
-                    <button className="hero__button"><span onClick={() => (
-                        scrollTo({
-                            top: projects.getBoundingClientRect().top,
-                            behavior: "smooth",
-                        })
-                        )}>Projects</span></button>
-                    <button className="hero__button hero__button__2"><Link to="/blogs" >Blog</Link></button>
-                    <button className="hero__button hero__button__3"><a target="_blank" href={`${import.meta.env.BASE_URL}cv.pdf`}>Resume</a></button>
+                    <button
+                        className="hero__button"
+                        onClick={scrollToProjects}
+                    >
+                        <span>Projects</span>
+                    </button>
+                    <button className="hero__button hero__button__3">
+                        <a target="_blank" href={resumeUrl} rel="noopener noreferrer">Resume</a>
+                    </button>
                 </div>
             </div>
         </main>
-    )
-}
-export default Hero
+    );
+};
+
+export default Hero;
