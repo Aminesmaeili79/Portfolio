@@ -9,7 +9,7 @@ const Navbar = () => {
 
     return (
         <nav className="text-[#dffffd] w-[100vw] px-[4em] py-[2em] md:px-[8em] md:py-[2em] lg:px-[16em] lg:py-[4em] flex gap-8 justify-between items-center">
-            <Link to="/" className="nav__logo font-extrabold italic">Amin Esmaeili</Link>
+            <a href="/" className="nav__logo font-extrabold italic">Amin Esmaeili</a>
             <div className="flex justify-between items-center gap-8 nav__links">
                 <div className="hidden md:flex gap-2 socials">
                     <a href="https://github.com/aminesmaeili79" className="github">
