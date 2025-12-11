@@ -20,8 +20,8 @@ const Projects = () => {
                             direction={screenWidth < 600 ? "col" : "row" }
                             img={`${import.meta.env.BASE_URL}project-1.png`}
                             title="Portfolio"
-                            ghLink="https://www.github.com/Aminesmaeili79/Portfolio-New.git"
-                            liveLink="https://aminesmaeili79.github.io/Portfolio-New/"
+                            ghLink="https://www.github.com/Aminesmaeili79/Portfolio.git"
+                            liveLink="https://aminesmaeili79.github.io/Portfolio/"
                             info="This project was aimed to create a minimalist and simple, though decent-looking portfolio, designed from scratch to showcase my styling skills."
                             techStack={["MERN", "TailwindCSS"]}
                         />
@@ -56,8 +56,8 @@ const Projects = () => {
                             direction={screenWidth < 600 ? "col" : "row" }
                             img={`${import.meta.env.BASE_URL}project-4.png`}
                             title="Old Portfolio"
-                            ghLink="https://www.github.com/Aminesmaeili79/Portfolio.git"
-                            liveLink="https://aminesmaeili79.github.io/Portfolio/"
+                            ghLink="https://www.github.com/Aminesmaeili79/3D-Portfolio.git"
+                            liveLink="https://aminesmaeili79.github.io/3D-Portfolio/"
                             info="This project was aimed to create a minimalist and simple, though decent-looking portfolio, designed from scratch to showcase my styling skills."
                             techStack={["React", "GSAP", "Three.js"]}
                         />

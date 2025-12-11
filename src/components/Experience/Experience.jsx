@@ -3,26 +3,19 @@ import BackgroundBlob from "../ui/BackgroundBlob.jsx";
 
 const experiences = [
   {
-    "company": "CyprusCodes | Futurecast.io",
-    "position": "Junior Fullstack Developer",
-    "date": "05/25 - Present",
-    "desc": "Part of the Blinx healthcare project which is used across UK and used by more than 40% of the population.",
-    "skills": ["React", "Node.js", "MongoDB", "Storybook"],
-  },
-  {
-    "company": "Upwork",
-    "position": "Freelancer",
-    "date": "03/25 - Present",
-    "desc": "I have been trying to get into the world of freelancing, although it's been a challenge for me, but haven't backed down yet!",
-    "skills": ["MERN", "ASP.Net", "UI/UX"]
-  },
-  {
     "company": "WebsureSoft",
     "position": "Web Developer",
     "location": "Nicosia, Cyprus",
-    "date": "08/24 - 05/25",
+    "date": "08/24 - Present",
     "desc": "I have taken the role full-stack developer using React and .NET stack to provide seemless applications for banking and insurance systems.",
     "skills": ["React", "ASP.Net", "Bootstrap"]
+  },
+  {
+    "company": "CyprusCodes | Futurecast.io",
+    "position": "Junior Fullstack Developer",
+    "date": "05/25 - 08/25",
+    "desc": "Part of the Blinx healthcare project which is used across UK and used by more than 40% of the population.",
+    "skills": ["React", "Node.js", "MongoDB", "Storybook"],
   },
   {
     "company": "Ozbul Iletisim",
@@ -31,6 +24,13 @@ const experiences = [
     "date": "06/24 - 08/24",
     "desc": "Was assigned the role of back-end developer to create and implement CMS system, CRUD-based APIs, with supervising of junior developers.",
     "skills": ["ASP.Net", "API", "Mock"]
+  },
+  {
+    "company": "Upwork",
+    "position": "Freelancer",
+    "date": "03/25 - Present",
+    "desc": "I have been trying to get into the world of freelancing, although it's been a challenge for me, but haven't backed down yet!",
+    "skills": ["MERN", "ASP.Net", "UI/UX"]
   },
 ]
 

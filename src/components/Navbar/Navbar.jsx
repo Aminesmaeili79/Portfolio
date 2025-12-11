@@ -31,7 +31,6 @@ const Navbar = () => {
                     </a>
                 </div>
                 <div className="hidden md:flex justify-between gap-8 items-center links__redirect">
-                    <a href="https://blog-aminesmaeili79s-projects.vercel.app/">Blog</a>
                     <a target="_blank" href={`${import.meta.env.BASE_URL}cv.pdf`}>My CV</a>
                 </div>
                 <div className="hamburger flex flex-col md:hidden">
