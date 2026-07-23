@@ -18,7 +18,8 @@ const capabilities = [
     { area: 'Front end', items: ['React', 'Next.js', 'Tailwind CSS', 'Bootstrap'] },
     { area: 'Back end', items: ['ASP.NET', 'Node.js', 'FastAPI', 'Nest.js'] },
     { area: 'Data', items: ['MongoDB', 'MySQL', 'Postgresql', 'Supabase'] },
-    { area: 'Practice', items: ['Git', 'Storybook', 'Vim'] },
+    { area: 'AI', items: ['Claude Code', 'OpenRouter', 'Ollama Library'] },
+    { area: 'Practice', items: ['Git', 'n8n', 'Storybook', 'Vim'] },
     { area: 'Security', items: ['Ethical Hacking', 'Nmap', 'Whireshark', 'Burp Suite', 'Metasploit Framework'] },
 ];
 
