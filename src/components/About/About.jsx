@@ -20,7 +20,7 @@ const capabilities = [
     { area: 'Data', items: ['MongoDB', 'MySQL', 'Postgresql', 'Supabase'] },
     { area: 'AI', items: ['Claude Code', 'OpenRouter', 'Ollama Library'] },
     { area: 'Practice', items: ['Git', 'n8n', 'Storybook', 'Vim'] },
-    { area: 'Security', items: ['Ethical Hacking', 'Nmap', 'Whireshark', 'Burp Suite', 'Metasploit Framework'] },
+    { area: 'Security', items: ['Ethical Hacking', 'Nmap', 'Wireshark', 'Burp Suite', 'Metasploit Framework'] },
 ];
 
 const About = () => (

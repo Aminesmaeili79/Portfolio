@@ -178,3 +178,9 @@
 [2026-07-23T13:29:05.517Z] [INFO] Worker testgaps deferred: Memory too low: 1.1% free
 [2026-07-23T13:33:04.753Z] [INFO] Worker audit deferred: Memory too low: 3.9% free
 [2026-07-23T13:36:04.560Z] [INFO] Worker map deferred: Memory too low: 1.8% free
+[2026-07-23T13:43:04.807Z] [INFO] Worker audit deferred: Memory too low: 0.8% free
+[2026-07-23T13:49:05.569Z] [INFO] Worker testgaps deferred: Memory too low: 0.8% free
+[2026-07-23T13:51:04.617Z] [INFO] Worker map deferred: Memory too low: 0.7% free
+[2026-07-23T13:53:04.847Z] [INFO] Worker audit deferred: Memory too low: 0.8% free
+[2026-07-23T13:55:04.659Z] [INFO] Worker optimize deferred: Memory too low: 0.7% free
+[2026-07-23T13:57:04.640Z] [INFO] Worker consolidate deferred: Memory too low: 0.8% free
