@@ -1,24 +1,100 @@
 /*
- * The wave field is anchored to the bottom of the hero and capped in height.
- * Each wave path fills the lower half of its own viewBox, so letting the layer
- * span the full hero pushed the wave crest up through the headline.
+ * Hero background. Two static layers, no animation:
+ *
+ *  .hero__grid  — a technical blueprint grid. Masked with a radial gradient so
+ *                 it never terminates on a visible edge; the mask is what stops
+ *                 it reading as a rectangle pasted onto the page.
+ *  .hero__glow  — a single soft light source behind the headline, giving the
+ *                 flat dark background somewhere to fall away from.
+ *
+ * The previous hero ran three SMIL-animated wave SVGs here. They were ~40KB of
+ * inline path data, animated continuously off the main thread budget, and had
+ * to be masked at the bottom to avoid cutting a hard line into the next
+ * section. A grid costs two gradients and solves the same "this space isn't
+ * empty" problem.
  */
-.hero__waves {
-    position: absolute;
-    inset: auto 0 0 0;
-    height: min(55%, 22rem);
-    z-index: 0;
-    pointer-events: none;
+.hero {
+    position: relative;
+    overflow: hidden;
 }
 
-.hero__waves svg {
+.hero__grid {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+    background-size: 72px 72px;
+    background-position: center top;
+    opacity: 0.5;
+    --grid-fade: radial-gradient(ellipse 75% 55% at 50% 35%, #000 0%, transparent 78%);
+    -webkit-mask-image: var(--grid-fade);
+    mask-image: var(--grid-fade);
 }
 
-/* Keeps the copy above the wave field */
+.hero__glow {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    top: -18%;
+    left: 50%;
+    width: min(72rem, 130vw);
+    aspect-ratio: 2 / 1;
+    transform: translateX(-50%);
+    background: radial-gradient(
+        ellipse at center,
+        color-mix(in srgb, var(--color-accent) 13%, transparent) 0%,
+        color-mix(in srgb, var(--color-accent-deep) 6%, transparent) 38%,
+        transparent 70%
+    );
+}
+
+/* Keeps the copy above the ambient layers */
 .hero > .container-page {
+    position: relative;
     z-index: 1;
+}
+
+/*
+ * Availability dot. The ping is the one continuous animation on the page and
+ * it earns it: it encodes live status ("available now"), which is exactly the
+ * "motion conveys meaning" case. It is a scale/opacity pulse on a pseudo
+ * element, so it composites without touching layout.
+ */
+.status-dot {
+    position: relative;
+    display: inline-flex;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: var(--color-accent);
+}
+
+.status-dot::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: var(--color-accent);
+    animation: status-ping 2.4s var(--ease-out-expo) infinite;
+}
+
+@keyframes status-ping {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    70%,
+    100% {
+        transform: scale(2.6);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .status-dot::before {
+        animation: none;
+    }
 }

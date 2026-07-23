@@ -1,71 +1,89 @@
-import BackgroundBlob from '../ui/BackgroundBlob.jsx';
+import './experience.css';
+import SectionHeading from '../ui/SectionHeading.jsx';
 import Reveal from '../ui/Reveal.jsx';
+import Glow from '../ui/Glow.jsx';
 
+/*
+ * Ordered current-roles-first, then past roles most-recent-first. The previous
+ * order was neither chronological nor grouped, so the reader had no way to tell
+ * which role was the main one.
+ */
 const experiences = [
     {
         company: 'WebsureSoft',
         position: 'Web Developer',
         location: 'Nicosia, Cyprus',
-        date: '08/24 - Present',
-        desc: 'I have taken the role of full-stack developer using React and .NET to provide seamless applications for banking and insurance systems.',
-        skills: ['React', 'ASP.Net', 'Bootstrap'],
+        date: 'Aug 2024 — Present',
+        current: true,
+        desc: 'Full-stack work on banking and insurance systems, building React front ends against .NET services.',
+        skills: ['React', 'ASP.NET', 'Bootstrap'],
     },
     {
-        company: 'CyprusCodes | Futurecast.io',
-        position: 'Junior Fullstack Developer',
-        date: '05/25 - 08/25',
-        desc: 'Part of the Blinx healthcare project which is used across the UK by more than 40% of the population.',
+        company: 'Upwork',
+        position: 'Freelance Developer',
+        date: 'Mar 2025 — Present',
+        current: true,
+        desc: 'Independent full-stack briefs taken on alongside full-time work, across MERN and ASP.NET stacks.',
+        skills: ['MERN', 'ASP.NET', 'UI/UX'],
+    },
+    {
+        company: 'CyprusCodes · Futurecast.io',
+        position: 'Junior Full-stack Developer',
+        date: 'May 2025 — Aug 2025',
+        desc: 'Contributed to Blinx, a healthcare platform used across the UK, working in React and Node with a Storybook-driven component library.',
         skills: ['React', 'Node.js', 'MongoDB', 'Storybook'],
     },
     {
         company: 'Ozbul Iletisim',
-        position: 'Intern Back-End Developer',
+        position: 'Back-end Developer Intern',
         location: 'Famagusta, Cyprus',
-        date: '06/24 - 08/24',
-        desc: 'Was assigned the role of back-end developer to create and implement a CMS, CRUD-based APIs, and to supervise junior developers.',
-        skills: ['ASP.Net', 'API', 'Mock'],
-    },
-    {
-        company: 'Upwork',
-        position: 'Freelancer',
-        date: '03/25 - Present',
-        desc: "I have been trying to get into the world of freelancing — it's been a challenge, but I haven't backed down yet.",
-        skills: ['MERN', 'ASP.Net', 'UI/UX'],
+        date: 'Jun 2024 — Aug 2024',
+        desc: 'Built a CMS and CRUD APIs in ASP.NET, and supported junior developers on the team.',
+        skills: ['ASP.NET', 'REST API', 'Mocking'],
     },
 ];
 
 const Experience = () => (
-    <section id="experience" className="section relative">
-        <div className="container-page">
-            <Reveal as="h2" className="mb-10 font-extrabold md:mb-14">
-                Experience
-            </Reveal>
+    <section id="experience" className="section">
+        <Glow
+            className="right-[-12%] top-1/3 h-[30rem] w-[30rem]"
+            color="var(--color-plum-deep)"
+            opacity={0.14}
+        />
 
-            <ul className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-                {experiences.map((experience, index) => (
+        <div className="container-page">
+            <SectionHeading index="02 — Experience" title="Where I have worked" />
+
+            <ol className="max-w-3xl">
+                {experiences.map((role, index) => (
                     <Reveal
                         as="li"
-                        key={experience.company}
+                        key={`${role.company}-${role.date}`}
                         delay={index * 60}
-                        className="card flex flex-col p-5 lg:p-6"
+                        className="timeline__item"
                     >
-                        <h3 className="font-bold">{experience.company}</h3>
-                        <p className="mt-1 text-lg text-accent">{experience.position}</p>
+                        <span
+                            aria-hidden="true"
+                            className={`timeline__marker ${role.current ? 'timeline__marker--current' : ''}`}
+                        />
 
-                        <p className="mt-1 mb-5 flex flex-wrap items-center gap-x-2 text-sm italic text-muted">
-                            <span>{experience.date}</span>
-                            {experience.location && (
+                        <p className="label">
+                            {role.date}
+                            {role.location && (
                                 <>
-                                    <span aria-hidden="true">&middot;</span>
-                                    <span>{experience.location}</span>
+                                    <span aria-hidden="true"> · </span>
+                                    {role.location}
                                 </>
                             )}
                         </p>
 
-                        <p className="mb-6 flex-1 text-sm text-muted">{experience.desc}</p>
+                        <h3 className="mt-2 font-semibold">{role.position}</h3>
+                        <p className="mt-0.5 text-sm font-medium text-accent">{role.company}</p>
 
-                        <ul className="flex flex-wrap gap-2">
-                            {experience.skills.map((skill) => (
+                        <p className="mt-3 text-sm leading-relaxed text-muted">{role.desc}</p>
+
+                        <ul className="mt-4 flex flex-wrap gap-1.5">
+                            {role.skills.map((skill) => (
                                 <li key={skill} className="pill">
                                     {skill}
                                 </li>
@@ -73,10 +91,8 @@ const Experience = () => (
                         </ul>
                     </Reveal>
                 ))}
-            </ul>
+            </ol>
         </div>
-
-        <BackgroundBlob position="right-0 top-1/3" color="var(--color-accent-deep)" />
     </section>
 );
 

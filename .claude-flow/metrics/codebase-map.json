@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-07-23T12:49:05.601Z",
+  "projectRoot": "/Users/amin/Desktop/Portfolio",
+  "structure": {
+    "hasPackageJson": true,
+    "hasTsConfig": false,
+    "hasClaudeConfig": true,
+    "hasClaudeFlow": true
+  },
+  "scannedAt": 1784810945601
+}

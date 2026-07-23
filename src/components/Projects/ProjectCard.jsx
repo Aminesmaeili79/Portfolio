@@ -1,64 +1,75 @@
 import './project-card.css';
-import { GitHubIcon, LiveLinkIcon } from '../ui/icons.jsx';
+import { ArrowUpRightIcon, GitHubIcon } from '../ui/icons.jsx';
 
 /*
- * `wide` swaps to a side-by-side layout from `sm` up. Orientation used to be
- * computed in JS from a one-shot window measurement, which never updated on
- * resize or rotate and flipped layout after first paint.
+ * The whole card is one link to the live site, via a stretched pseudo-element
+ * on the title anchor. That keeps the accessible name on a real <a> — a div
+ * with an onClick would give a screen reader nothing to announce — while still
+ * letting a mouse user hit anywhere on the card.
+ *
+ * The GitHub link is a second, separate destination, so it sits above the
+ * stretched layer (.project__action) rather than nesting inside the anchor.
+ * Nested <a> elements are invalid HTML and browsers resolve them
+ * unpredictably.
  */
-const ProjectCard = ({ wide = false, img, title, ghLink, liveLink, info, techStack = [] }) => (
-    <article className={`project card flex h-full flex-col overflow-hidden ${wide ? 'sm:flex-row' : ''}`}>
-        <div className={`shrink-0 ${wide ? 'sm:w-56 lg:w-64' : ''}`}>
+const ProjectCard = ({ img, title, ghLink, liveLink, info, techStack = [] }) => (
+    <article className="project card flex h-full flex-col overflow-hidden">
+        <div className="project__media aspect-[16/10]">
             <img
                 src={img}
                 alt={`Screenshot of the ${title} project`}
                 width="900"
-                height="545"
+                height="562"
                 loading="lazy"
                 decoding="async"
-                className={`w-full object-cover ${wide ? 'h-44 sm:h-full' : 'h-44'}`}
             />
         </div>
 
-        <div className="flex flex-1 flex-col gap-3 p-5 lg:p-6">
-            <div className="flex items-start justify-between gap-3">
-                <h3 className="font-bold">{title}</h3>
-
-                <div className="project__links flex shrink-0 items-center">
-                    {ghLink && (
-                        <a
-                            href={ghLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${title} source code on GitHub`}
-                            className="inline-flex size-11 items-center justify-center rounded-lg"
-                        >
-                            <GitHubIcon className="size-6" />
-                        </a>
-                    )}
-                    {liveLink && (
+        <div className="flex flex-1 flex-col gap-4 p-6 lg:p-7">
+            <div className="flex items-start justify-between gap-4">
+                <h3 className="font-semibold">
+                    {liveLink ? (
                         <a
                             href={liveLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label={`${title} live site`}
-                            className="inline-flex size-11 items-center justify-center rounded-lg"
+                            className="card-link"
                         >
-                            <LiveLinkIcon className="size-6" />
+                            {title}
+                            <span className="sr-only"> — open the live site</span>
                         </a>
+                    ) : (
+                        title
                     )}
-                </div>
+                </h3>
+
+                <ArrowUpRightIcon className="project__arrow mt-1 size-4 shrink-0 text-subtle" />
             </div>
 
-            <p className="flex-1 text-sm text-muted">{info}</p>
+            <p className="flex-1 text-sm leading-relaxed text-muted">{info}</p>
 
-            <ul className="flex flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-1.5">
                 {techStack.map((tech) => (
                     <li key={tech} className="pill">
                         {tech}
                     </li>
                 ))}
             </ul>
+
+            {ghLink && (
+                <div className="flex items-center border-t border-line pt-4">
+                    <a
+                        href={ghLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project__action inline-flex min-h-11 items-center gap-2 text-sm font-medium"
+                    >
+                        <GitHubIcon className="size-4" />
+                        Source
+                        <span className="sr-only"> code for {title} on GitHub</span>
+                    </a>
+                </div>
+            )}
         </div>
     </article>
 );

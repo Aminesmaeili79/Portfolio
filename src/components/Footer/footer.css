@@ -1,19 +1,27 @@
 /*
- * Footer copy sits on top of the teal wave. The previous values (#333 body,
- * #99b6b6 links) scored 3.13:1 and 1.87:1 against that gradient — both below
- * the 4.5:1 minimum. These are verified against the darkest and lightest
- * points of the gradient.
+ * The footer used to carry a full-width teal wave SVG and 390px of padding to
+ * clear it. That was the page's second, unrelated visual language — nothing
+ * else on the site was organic or gradient-filled — and it forced its own
+ * contrast workarounds, because body copy had to stay legible against a
+ * gradient that changed lightness across its width.
+ *
+ * It is now a plain rule and a hairline top border, so footer text sits on the
+ * same background as the rest of the page and inherits the verified tokens.
  */
-.footer__meta {
-    color: color-mix(in srgb, var(--color-text) 88%, transparent);
+.footer {
+    border-top: 1px solid var(--color-line);
 }
 
 .footer__meta a {
-    color: #a9f0ee;
+    color: var(--color-muted);
     text-decoration: underline;
+    text-decoration-color: var(--color-line-strong);
     text-underline-offset: 3px;
+    transition: color var(--dur-base) var(--ease-out-expo),
+        text-decoration-color var(--dur-base) var(--ease-out-expo);
 }
 
 .footer__meta a:hover {
-    color: #ffffff;
+    color: var(--color-accent);
+    text-decoration-color: currentColor;
 }
