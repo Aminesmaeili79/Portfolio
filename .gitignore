@@ -3,3 +3,7 @@ node_modules
 .env
 .env.production
 .DS_Store
+
+# Build output. Vercel builds from source; `gh-pages -d dist` publishes the
+# local folder to the gh-pages branch. Neither needs it tracked on main.
+dist

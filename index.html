@@ -12,8 +12,13 @@
     <meta name="author" content="Amin Esmaeili" />
     <meta name="theme-color" content="#1c1e26" />
 
-    <link rel="icon" type="image/svg+xml" href="/Portfolio/favicon.svg" />
-    <link rel="canonical" href="https://aminesmaeili79.github.io/Portfolio/" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <!--
+      Canonical is the Vercel domain, the primary deployment. The GitHub Pages
+      build serves this same tag, which is intended: it points search engines at
+      the canonical copy instead of indexing github.io as a duplicate.
+    -->
+    <link rel="canonical" href="https://aminesmaeili-portfolio.vercel.app/" />
 
     <!-- Link previews: without these the shared card renders blank -->
     <meta property="og:type" content="website" />
@@ -23,10 +28,10 @@
       property="og:description"
       content="Full-stack developer working with React, .NET and Node.js. Selected projects, experience and certifications."
     />
-    <meta property="og:url" content="https://aminesmaeili79.github.io/Portfolio/" />
+    <meta property="og:url" content="https://aminesmaeili-portfolio.vercel.app/" />
     <meta
       property="og:image"
-      content="https://aminesmaeili79.github.io/Portfolio/pxArt.webp"
+      content="https://aminesmaeili-portfolio.vercel.app/pxArt.webp"
     />
     <meta property="og:image:alt" content="Pixel-art portrait of Amin Esmaeili" />
 
@@ -38,7 +43,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://aminesmaeili79.github.io/Portfolio/pxArt.webp"
+      content="https://aminesmaeili-portfolio.vercel.app/pxArt.webp"
     />
 
     <!-- Above-the-fold faces only; the rest load on demand via font-display: swap -->

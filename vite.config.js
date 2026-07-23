@@ -10,5 +10,10 @@ export default defineConfig({
       '/api': 'http://localhost:8080'
     },
   },
-  base: "/Portfolio/"
+  /*
+   * GitHub Pages serves this as a project site under /Portfolio/, Vercel serves
+   * it at the domain root. Vercel sets VERCEL=1 during the build; the gh-pages
+   * deploy builds locally, where it is unset.
+   */
+  base: process.env.VERCEL ? "/" : "/Portfolio/"
 })
