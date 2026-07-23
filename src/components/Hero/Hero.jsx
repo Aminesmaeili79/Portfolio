@@ -8,7 +8,7 @@ const CV_URL = `${import.meta.env.BASE_URL}cv.pdf`;
    Every entry here is backed by a role or project listed further down the
    page — a stack strip that outruns the evidence is the fastest way to lose a
    technical reader. */
-const STACK = ['React', 'Next.js', '.NET', 'Node.js', 'MongoDB', 'Tailwind'];
+const STACK = ['React', 'Next.js', 'FastAPI', 'Node.js', 'Nest.js', 'MongoDB', 'Postgresql', 'MySQL', 'Supabase'];
 
 const Hero = () => (
     <section className="hero flex min-h-[max(38rem,calc(100svh-var(--nav-h)))] items-center">
