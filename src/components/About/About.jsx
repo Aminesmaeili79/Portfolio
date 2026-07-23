@@ -16,9 +16,10 @@ const avatar = `${import.meta.env.BASE_URL}pxArt.webp`;
  */
 const capabilities = [
     { area: 'Front end', items: ['React', 'Next.js', 'Tailwind CSS', 'Bootstrap'] },
-    { area: 'Back end', items: ['ASP.NET', 'Node.js', 'REST APIs'] },
-    { area: 'Data', items: ['MongoDB', 'SQL'] },
-    { area: 'Practice', items: ['Git', 'Storybook', 'Vim', 'Accessibility'] },
+    { area: 'Back end', items: ['ASP.NET', 'Node.js', 'FastAPI', 'Nest.js'] },
+    { area: 'Data', items: ['MongoDB', 'MySQL', 'Postgresql', 'Supabase'] },
+    { area: 'Practice', items: ['Git', 'Storybook', 'Vim'] },
+    { area: 'Security', items: ['Ethical Hacking', 'Nmap', 'Whireshark', 'Burp Suite', 'Metasploit Framework'] },
 ];
 
 const About = () => (
