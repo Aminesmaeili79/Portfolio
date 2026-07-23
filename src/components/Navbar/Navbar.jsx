@@ -3,10 +3,14 @@ import SocialLinks from '../ui/SocialLinks.jsx';
 import { CloseIcon, DocumentIcon, MenuIcon } from '../ui/icons.jsx';
 import useScrollSpy from '../../hooks/useScrollSpy.js';
 
+/*
+ * Order mirrors the page: work first, because that is what a visitor came to
+ * see, and contact last as the destination the rest of the page funnels toward.
+ */
 const NAV_LINKS = [
-    { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
+    { id: 'work', label: 'Work' },
     { id: 'experience', label: 'Experience' },
+    { id: 'about', label: 'About' },
     { id: 'certifications', label: 'Certifications' },
 ];
 
@@ -92,7 +96,7 @@ const Navbar = () => {
             <nav aria-label="Main" className="container-page flex items-center justify-between gap-6 py-3">
                 <a
                     href={import.meta.env.BASE_URL}
-                    className="font-display text-base font-extrabold italic tracking-tight text-text transition-colors hover:text-accent md:text-lg"
+                    className="text-[0.9375rem] font-semibold tracking-[-0.02em] text-text transition-colors hover:text-accent"
                 >
                     Amin Esmaeili
                 </a>
@@ -117,14 +121,8 @@ const Navbar = () => {
 
                     <SocialLinks iconClass="size-5" />
 
-                    <a
-                        href={CV_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-primary px-5 py-2 text-sm"
-                    >
-                        <DocumentIcon className="size-4" />
-                        My CV
+                    <a href="#contact" className="btn btn-primary px-5 py-2 text-sm">
+                        Get in touch
                     </a>
                 </div>
 
@@ -184,18 +182,21 @@ const Navbar = () => {
                         ))}
                     </ul>
 
-                    <div className="mt-auto flex flex-col gap-6 border-t border-line pt-8">
+                    <div className="mt-auto flex flex-col gap-3 border-t border-line pt-8">
+                        <a href="#contact" onClick={close} className="btn btn-primary w-full">
+                            Get in touch
+                        </a>
                         <a
                             href={CV_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={close}
-                            className="btn btn-primary w-full"
+                            className="btn btn-secondary w-full"
                         >
                             <DocumentIcon className="size-5" />
-                            My CV
+                            Résumé
                         </a>
-                        <SocialLinks className="justify-center gap-4" iconClass="size-7" />
+                        <SocialLinks className="mt-3 justify-center gap-4" iconClass="size-6" />
                     </div>
                 </div>
             </nav>

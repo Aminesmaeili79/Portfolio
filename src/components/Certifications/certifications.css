@@ -1,8 +1,51 @@
-.verify-link {
-    color: var(--color-accent);
+/*
+ * Certifications are supporting evidence, not the headline. They were seven
+ * full-size cards — more visual weight than the two projects above them, which
+ * told a reader the coursework mattered more than the work. These are compact
+ * rows instead: same information, a third of the height.
+ */
+.cert {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    transition: background-color var(--dur-base) var(--ease-out-expo),
+        border-color var(--dur-base) var(--ease-out-expo);
 }
 
-.verify-link:hover {
-    color: var(--color-text);
-    text-decoration: underline;
+.cert:hover {
+    background-color: var(--color-surface);
+    border-color: var(--color-line);
+}
+
+/* Issuer badges are supplied as raster logos on varying backgrounds; the ring
+   and neutral plate keep them from floating on the dark page. */
+.cert__badge {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-elevated);
+    border: 1px solid var(--color-line);
+    overflow: hidden;
+}
+
+.cert__badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0.25rem;
+}
+
+.cert__verify {
+    color: var(--color-subtle);
+    transition: color var(--dur-base) var(--ease-out-expo);
+}
+
+.cert:hover .cert__verify {
+    color: var(--color-accent);
 }

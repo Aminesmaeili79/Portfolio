@@ -10,7 +10,8 @@
       content="Amin Esmaeili is a full-stack developer working with React, .NET and Node.js. Selected projects, experience and certifications."
     />
     <meta name="author" content="Amin Esmaeili" />
-    <meta name="theme-color" content="#1c1e26" />
+    <!-- Matches --ink-950, the page background, so mobile browser chrome blends in -->
+    <meta name="theme-color" content="#0b0e14" />
 
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <!--
@@ -46,21 +47,13 @@
       content="https://aminesmaeili-portfolio.vercel.app/pxArt.webp"
     />
 
-    <!-- Above-the-fold faces only; the rest load on demand via font-display: swap -->
-    <link
-      rel="preload"
-      href="/src/fonts/DrukText-Medium-Trial.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/src/fonts/DrukWide-Heavy-Trial.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    <!--
+      No font <link> tags: Inter and JetBrains Mono are imported from
+      node_modules in index.css, so Vite hashes and emits them as build assets.
+      Hand-written preload paths would have to be updated by hand every time
+      those hashes change, which is exactly how the previous pair ended up
+      pointing at files that no longer existed.
+    -->
   </head>
   <body>
     <div id="root"></div>

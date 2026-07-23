@@ -74,3 +74,22 @@ export const ArrowDownIcon = ({ className = 'size-5' }) => (
         <path d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
     </svg>
 );
+
+export const ArrowRightIcon = ({ className = 'size-5' }) => (
+    <svg {...stroked} className={className}>
+        <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+    </svg>
+);
+
+export const ArrowUpRightIcon = ({ className = 'size-4' }) => (
+    <svg {...stroked} className={className}>
+        <path d="M4.5 19.5 19.5 4.5m0 0H8.25m11.25 0v11.25" />
+    </svg>
+);
+
+export const MapPinIcon = ({ className = 'size-4' }) => (
+    <svg {...stroked} className={className}>
+        <path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+    </svg>
+);

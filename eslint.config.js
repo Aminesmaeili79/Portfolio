@@ -5,6 +5,17 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
   { ignores: ['dist'] },
+  /*
+   * Build config runs in Node, not the browser — it reads process.env to pick
+   * the base path per deploy target. Without this block the browser-globals
+   * config below flags `process` as undefined.
+   */
+  {
+    files: ['vite.config.js', 'eslint.config.js'],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {

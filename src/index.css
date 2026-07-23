@@ -1,109 +1,119 @@
-@import "tailwindcss";
+/*
+ * Fonts are self-hosted via @fontsource rather than pulled from the Google
+ * Fonts CDN: no third-party request on first paint, no external dependency in
+ * the critical path, and nothing to break under a strict CSP. Vite fingerprints
+ * and emits the woff2 subsets, and each face carries a unicode-range so a
+ * latin-only visitor never downloads the cyrillic/greek/vietnamese cuts.
+ */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+@import 'tailwindcss';
 
 /* ==========================================================================
-   FONTS — Druk Text (UI/body) + Druk Wide (display)
-   Only faces that exist on disk are declared. The trial family has no weights
-   below Medium, so each face claims a weight *range*; every utility weight
-   (font-extralight .. font-extrabold) resolves to a real file instead of
-   falling back to system-ui.
+   LAYER 1 — PRIMITIVES
+   Raw values only. Nothing outside the semantic layer may reference these
+   directly; a component reaching for --ink-600 is a bug, not a shortcut.
    ========================================================================== */
+:root {
+  /* Neutral ramp. Cool/blue-leaning rather than the previous warm grey — it
+     reads as "engineering" and keeps the teal accent from turning muddy.
+     --ink-950 is deliberately not #000: pure black smears on OLED and kills
+     the sense of depth that the elevated surfaces depend on. */
+  --ink-950: #0b0e14;
+  --ink-900: #111725;
+  --ink-800: #161d2e;
+  --ink-700: #1d2637;
+  --ink-600: #243044;
+  --ink-500: #526484;
+  --ink-400: #71809a;
+  --ink-300: #9fb0c7;
+  --ink-100: #e8eef7;
 
-/* --- Druk Text --------------------------------------------------------- */
-@font-face {
-  font-family: 'Druk Text';
-  src: url('./fonts/DrukText-Medium-Trial.woff2') format('woff2');
-  font-weight: 100 550;
-  font-style: normal;
-  font-display: swap;
-}
+  /* Brand accent, carried over from the previous design so the identity
+     survives the redesign. */
+  --teal-400: #2dd4bf;
+  --teal-600: #0e9c8e;
+  --teal-950: #04140f;
 
-@font-face {
-  font-family: 'Druk Text';
-  src: url('./fonts/DrukText-MediumItalic-Trial.woff2') format('woff2');
-  font-weight: 100 550;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Druk Text';
-  src: url('./fonts/DrukText-Bold-Trial.woff2') format('woff2');
-  font-weight: 551 750;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Druk Text';
-  src: url('./fonts/DrukText-BoldItalic-Trial.woff2') format('woff2');
-  font-weight: 551 750;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Druk Text';
-  src: url('./fonts/DrukText-Heavy-Trial.woff2') format('woff2');
-  font-weight: 751 1000;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Druk Text';
-  src: url('./fonts/DrukText-HeavyItalic-Trial.woff2') format('woff2');
-  font-weight: 751 1000;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* --- Druk Wide (display only: wordmark, hero, section titles) ----------- */
-@font-face {
-  font-family: 'Druk Wide';
-  src: url('./fonts/DrukWide-Heavy-Trial.woff2') format('woff2');
-  font-weight: 100 1000;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Druk Wide';
-  src: url('./fonts/DrukWide-HeavyItalic-Trial.woff2') format('woff2');
-  font-weight: 100 1000;
-  font-style: italic;
-  font-display: swap;
+  /* Secondary accent, used sparingly — a highlight, never a second brand. */
+  --plum-300: #c994e8;
+  --plum-500: #a855c7;
 }
 
 /* ==========================================================================
-   DESIGN TOKENS
-   Every value below is contrast-verified against its intended background.
-   Rule: *-deep tokens are for borders/fills/glows only — never text.
+   LAYER 2 — SEMANTIC
+   Purpose-named aliases. These live in @theme so Tailwind v4 generates the
+   matching utilities (bg-surface, text-muted, border-line, ...).
+
+   Every pair below is contrast-verified against its intended background:
+     text on bg ........ 16.6:1     muted on bg ....... 8.8:1
+     text on surface ... 15.4:1     muted on surface .. 8.1:1
+     accent on bg ...... 10.4:1     accent-ink on accent 10.1:1
+     subtle on bg ...... 4.8:1  (meta text only, >=3:1)
+     line-strong on bg . 3.2:1  (interactive borders, >=3:1)
+   --color-line is a 1.5:1 hairline: decorative card edges only. Anything a
+   user must perceive to operate the UI uses --color-line-strong.
    ========================================================================== */
 @theme {
-  --color-bg: #1c1e26;
-  --color-surface: #31343d;
-  --color-surface-2: #241f2e;
-  --color-line: #3d414d;
+  --color-bg: var(--ink-950);
+  --color-surface: var(--ink-900);
+  --color-elevated: var(--ink-800);
+  --color-raised: var(--ink-700);
 
-  --color-text: #dffffd;
-  --color-muted: #b6bcc4;
+  --color-line: var(--ink-600);
+  --color-line-strong: var(--ink-500);
 
-  --color-accent: #1ac9c6;
-  --color-accent-deep: #128d8a;
-  --color-accent-ink: #0a1414;
+  --color-text: var(--ink-100);
+  --color-muted: var(--ink-300);
+  --color-subtle: var(--ink-400);
 
-  --color-plum: #d67ed2;
-  --color-plum-deep: #ac59b7;
-  --color-plum-soft: #e9c9ef;
+  --color-accent: var(--teal-400);
+  --color-accent-deep: var(--teal-600);
+  --color-accent-ink: var(--teal-950);
 
-  --color-wave-from: #0c5f5e;
-  --color-wave-to: #164b50;
+  --color-plum: var(--plum-300);
+  --color-plum-deep: var(--plum-500);
 
-  --font-sans: 'Druk Text', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: 'Druk Wide', 'Druk Text', ui-sans-serif, system-ui, sans-serif;
+  /* Inter for everything readable; JetBrains Mono earns its place as the
+     label/metadata voice — dates, tech tags, section numbers. It signals
+     "developer" without costing legibility on body copy. */
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace;
 
   /* Height of the sticky header: 44px control + 2x 12px padding */
   --nav-h: 4.25rem;
+}
+
+/* ==========================================================================
+   LAYER 3 — COMPONENT TOKENS + SCALES
+   ========================================================================== */
+:root {
+  /* Explicit z-index scale. Arbitrary values (z-9999) are how stacking bugs
+     start; there are only four legitimate tiers on this page. */
+  --z-base: 1;
+  --z-sticky: 20;
+  --z-overlay: 40;
+  --z-header: 50;
+
+  /* Section rhythm. Consistent tiers instead of ad-hoc margins. */
+  --space-section: clamp(4.5rem, 10vw, 8rem);
+  --space-block: clamp(2rem, 4vw, 3.5rem);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Motion. 150-300ms for micro-interactions; the expressive curve is the
+     expo-out the design system calls for. */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 150ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-card-hover: 0 16px 40px -12px rgb(0 0 0 / 0.6);
 }
 
 /* ==========================================================================
@@ -119,14 +129,15 @@ html {
   /*
    * The single source of anchor offset: clear the sticky header, plus a little
    * air. Do not also set scroll-margin-top on targets to clear the header —
-   * the two properties add, which parked every section 192px too low.
+   * the two properties add, which parked every section far too low.
    */
-  scroll-padding-top: calc(var(--nav-h) + 1rem);
+  scroll-padding-top: calc(var(--nav-h) + 2rem);
   -webkit-text-size-adjust: 100%;
 }
 
 :root {
   font-family: var(--font-sans);
+  font-size: 16px;
   line-height: 1.6;
   font-weight: 400;
   color-scheme: dark;
@@ -146,24 +157,36 @@ body {
   background-color: var(--color-bg);
 }
 
-/* Type scale — fluid, no fixed em jumps between breakpoints */
+/*
+ * Type scale — fluid, with tracking tightening as size grows. Inter needs
+ * negative tracking at display sizes or it reads loose and amateurish; the
+ * default spacing is tuned for body copy, not 76px headlines.
+ */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 650;
+  text-wrap: balance;
+}
+
 h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 7vw, 4.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.5rem, 7vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 700;
 }
 
 h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 h3 {
-  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-  line-height: 1.25;
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  line-height: 1.3;
+  letter-spacing: -0.012em;
 }
 
 p {
@@ -172,14 +195,8 @@ p {
 }
 
 a {
-  font-weight: 500;
-  color: var(--color-text);
+  color: inherit;
   text-decoration: inherit;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--color-accent);
 }
 
 img {
@@ -203,16 +220,15 @@ img {
   top: -100%;
   z-index: 100;
   padding: 0.75rem 1.25rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   background-color: var(--color-accent);
   color: var(--color-accent-ink);
-  font-weight: 700;
-  transition: top 0.2s ease;
+  font-weight: 600;
+  transition: top var(--dur-base) var(--ease-out-expo);
 }
 
 .skip-link:focus {
   top: 1rem;
-  color: var(--color-accent-ink);
 }
 
 } /* @layer base */
@@ -224,81 +240,124 @@ img {
 
 .container-page {
   width: 100%;
-  max-width: 72rem;
+  max-width: 75rem;
   margin-inline: auto;
   padding-inline: 1.25rem;
 }
 
 @media (min-width: 768px) {
   .container-page {
-    padding-inline: 2rem;
+    padding-inline: 2.5rem;
   }
 }
 
 @media (min-width: 1280px) {
   .container-page {
-    padding-inline: 3rem;
+    padding-inline: 3.5rem;
   }
 }
 
-/* Vertical rhythm between top-level sections */
 .section {
-  --section-pad: clamp(4rem, 12vw, 8rem);
-  padding-block: var(--section-pad);
+  padding-block: var(--space-section);
+  position: relative;
   /*
-   * The id sits on the <section>, but the thing a reader is looking for is its
-   * heading — which starts one padding-block below the section's top edge.
-   * Cancelling that padding here lands the *heading* under the header instead
-   * of the empty space above it.
+   * Contains the ambient glows. They are intentionally wider than the viewport
+   * so the light falls off past the edge of the content, which otherwise pushes
+   * the document ~90px wide on phones and lets the page scroll sideways.
+   *
+   * Clipped here rather than on <html> or <body>: setting overflow on either of
+   * those changes which element is the scroll container, and that breaks
+   * `position: sticky` on the header. A section is not in the header's
+   * containing-block chain, so clipping one is inert.
+   *
+   * `clip` rather than `hidden` so this never becomes a scrollport of its own.
+   * The clipped region is off-screen horizontally, so the cut is invisible.
    */
-  scroll-margin-top: calc(-1 * var(--section-pad));
+  overflow: clip;
 }
 
-/* ==========================================================================
-   SHARED COMPONENTS
-   ========================================================================== */
+/* --- Eyebrow / label -----------------------------------------------------
+   The mono voice. Used for section numbers, dates and status text. */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-subtle);
+}
+
+/* --- Surfaces ------------------------------------------------------------
+   A single elevation model: flat surface, hairline edge, and a hover state
+   that lifts via shadow + border rather than scale. Transform-based hovers on
+   a grid of cards cause neighbouring reflow jitter on trackpads. */
 .card {
+  position: relative;
   background-color: var(--color-surface);
   border: 1px solid var(--color-line);
-  border-radius: 0.75rem;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo),
+    background-color var(--dur-base) var(--ease-out-expo);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-accent-deep);
-  box-shadow: 0 12px 32px rgb(0 0 0 / 0.35);
+  background-color: var(--color-elevated);
+  border-color: var(--color-line-strong);
+  box-shadow: var(--shadow-card-hover);
 }
 
-/* Non-interactive skill/tech pills */
+/*
+ * Interactive cards get the whole surface as a hit area via a stretched
+ * pseudo-element on the title link, so the accessible name stays on a real
+ * <a> instead of a div with an onClick.
+ */
+.card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+/* --- Pills --------------------------------------------------------------- */
 .pill {
-  display: inline-block;
-  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
   font-weight: 500;
+  letter-spacing: 0.04em;
   line-height: 1.4;
-  padding: 0.25rem 0.75rem;
-  border: 1px solid var(--color-accent-deep);
-  border-radius: 9999px;
-  background-color: color-mix(in srgb, var(--color-accent-deep) 20%, transparent);
-  color: var(--color-text);
+  padding: 0.3125rem 0.625rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg);
+  color: var(--color-muted);
+  white-space: nowrap;
 }
 
-/* Buttons: opt-in via .btn, so the element selector can stay unstyled */
+/* --- Buttons -------------------------------------------------------------
+   Opt-in via .btn so the bare element selector stays unstyled. Hover changes
+   colour/shadow only — never size — so rows of buttons don't reflow. */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   min-height: 44px;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1.5rem;
   border: 1px solid transparent;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   font-family: inherit;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.006em;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
-    color 0.2s ease;
+  white-space: nowrap;
+  transition: background-color var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo), color var(--dur-base) var(--ease-out-expo);
 }
 
 .btn-primary {
@@ -307,19 +366,33 @@ img {
 }
 
 .btn-primary:hover {
-  color: var(--color-accent-ink);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 25%, transparent);
+  background-color: color-mix(in srgb, var(--color-accent) 88%, white);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 22%, transparent);
 }
 
 .btn-secondary {
-  background-color: var(--color-surface-2);
-  border-color: var(--color-plum-deep);
-  color: var(--color-plum-soft);
+  background-color: transparent;
+  border-color: var(--color-line-strong);
+  color: var(--color-text);
 }
 
 .btn-secondary:hover {
-  color: var(--color-plum-soft);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-plum-deep) 25%, transparent);
+  background-color: var(--color-elevated);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* --- Inline text link ---------------------------------------------------- */
+.link {
+  color: var(--color-accent);
+  text-underline-offset: 0.25em;
+  text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+  text-decoration-line: underline;
+  transition: text-decoration-color var(--dur-base) var(--ease-out-expo);
+}
+
+.link:hover {
+  text-decoration-color: currentColor;
 }
 
 /* ==========================================================================
@@ -327,8 +400,9 @@ img {
    ========================================================================== */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(18px);
+  transition: opacity var(--dur-slow) var(--ease-out-expo),
+    transform var(--dur-slow) var(--ease-out-expo);
 }
 
 .reveal[data-visible='true'] {
