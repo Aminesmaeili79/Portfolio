@@ -1,49 +1,24 @@
-.hero {
-    left: 0;
-    width: 100vw;
-    /*height: 50vh;*/
-
-    svg {
-        position: absolute;
-        transform: rotate(180deg);
-    }
-}
+/*
+ * The wave field is anchored to the bottom of the hero and capped in height.
+ * Each wave path fills the lower half of its own viewBox, so letting the layer
+ * span the full hero pushed the wave crest up through the headline.
+ */
 .hero__waves {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100vw;
+    inset: auto 0 0 0;
+    height: min(55%, 22rem);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero__waves svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
     height: 100%;
-    z-index: -50;
 }
 
-.hero__button {
-    font-size: 1.2rem;
-    color: #222;
-    background-color: #128d8a;
-    outline: none;
-    border: none;
-    transition: all .2s;
-    &:hover {
-        cursor: pointer;
-        box-shadow: 0 0 10px 2px #128d8a77;
-    }
-}
-
-.hero__button__2 {
-    color: #222;
-    background-color: #ac59b7;
-    &:hover {
-        box-shadow: 0 0 10px 2px #ac59b777;
-    }
-}
-
-.hero__button__3 {
-    color: #ac59b7;
-    background-color: #202030;
-    border: 1px solid #ac59b7aa;
-    &:hover {
-        box-shadow: 0 0 10px 2px #ac59b777;
-        border-color: #ac59b7aa;
-    }
+/* Keeps the copy above the wave field */
+.hero > .container-page {
+    z-index: 1;
 }

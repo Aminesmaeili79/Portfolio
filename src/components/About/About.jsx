@@ -1,38 +1,40 @@
-import React from 'react'
-import avatar from "/pxArt.png"
-import "./about.css"
-import { SparklesCore } from "../ui/sparkles.jsx";
-import BackgroundBlob from "../ui/BackgroundBlob.jsx";
-// import Avatar from "../Avatar/Avatar.jsx";
+import './about.css';
+import BackgroundBlob from '../ui/BackgroundBlob.jsx';
+import Reveal from '../ui/Reveal.jsx';
 
-const About = () => {
-    return (
-        <section className="mt-[6em] md:mt-[12em] flex flex-col items-center w-[100vw] px-[4em] md:px-[24em]">
-            <div className="flex flex-col items-center md:flex-row justify-between gap-16">
-                <div className="about order-2 md:order-1">
-                    <h2 className="font-bold">I'm a developer aiming to bring innovation and <span className="relative text-[#bf59bb] -z-10"><SparklesPreview/>spark</span> into digital world</h2>
-                    <p>In my honest opinion, an application must be flawless -- for both devs and users -- and solve the daily problems easily.</p>
+const avatar = `${import.meta.env.BASE_URL}pxArt.webp`;
+
+const About = () => (
+    <section id="about" className="section relative">
+        <div className="container-page">
+            <Reveal className="flex flex-col items-center gap-12 md:flex-row md:justify-between md:gap-16">
+                <div className="order-2 flex flex-col gap-5 md:order-1">
+                    <h2 className="font-extrabold">
+                        I&apos;m a developer aiming to bring innovation and{' '}
+                        <span className="spark">spark</span> into the digital world
+                    </h2>
+                    <p className="text-muted">
+                        In my honest opinion, an application must be flawless &mdash; for both devs
+                        and users &mdash; and solve daily problems easily.
+                    </p>
                 </div>
-                <div className="avatar order-1 md:order-2 w-[200px] md:w-[400px]">
-                    <img className="rounded-full" src={avatar} alt=""/>
-                    {/*<Avatar/>*/}
-                    <BackgroundBlob position={"left-[10%]"} color={"#ff0080"}/>
+
+                <div className="order-1 w-48 shrink-0 md:order-2 md:w-80">
+                    <img
+                        src={avatar}
+                        alt="Pixel-art portrait of Amin Esmaeili"
+                        width="800"
+                        height="705"
+                        loading="lazy"
+                        decoding="async"
+                        className="aspect-square w-full rounded-full object-cover"
+                    />
                 </div>
-            </div>
-        </section>
-    )
-}
-export default About
+            </Reveal>
+        </div>
 
+        <BackgroundBlob position="left-[10%] top-1/2" color="var(--color-plum-deep)" />
+    </section>
+);
 
-export function SparklesPreview() {
-    return (
-                <SparklesCore
-                    background="transparent"
-                    minSize={0.4}
-                    maxSize={1}
-                    particleDensity={1200}
-                    className="absolute w-full top-0 left-0 h-full"
-                    particleColor="#FFFFFF" />
-    );
-}
+export default About;

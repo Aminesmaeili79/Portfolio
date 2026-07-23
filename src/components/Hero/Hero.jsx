@@ -1,49 +1,51 @@
-"use client"; // Add this at the top of the file
-
-import React, { useEffect, useState } from 'react';
 import './hero.css';
-import AnimatedWaves from "../Waves/AnimatedWaves.jsx";
+import AnimatedWaves from '../Waves/AnimatedWaves.jsx';
+import { ArrowDownIcon, DocumentIcon } from '../ui/icons.jsx';
 
-const Hero = () => {
-  // Use state to store the projects element reference
-  const [resumeUrl, setResumeUrl] = useState('/Portfolio/cv.pdf'); // Default URL, adjust as needed
+const CV_URL = `${import.meta.env.BASE_URL}cv.pdf`;
 
-  // Handle the scroll function
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById("projects");
-    if (projectsSection) {
-      projectsSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-  };
-
-  return (
-    <main className="hero flex flex-col justify-center items-center">
-      <div className="hero__waves">
-        <AnimatedWaves />
-      </div>
-      <div className="introduction w-full md:w-fit text-xs mt-16">
-        <h1 className="introduction__heading text-center font-extrabold md:mb-4">Hello 👋, I'm Amin</h1>
-        <div className="introduction__desc hidden md:flex flex-col">
-          <h3 className="italic font-extralight">I build full-stack apps</h3>
-          <h3 className="self-end italic font-extralight">And I do it cuz I love coding!</h3>
+const Hero = () => (
+    <section className="hero relative flex min-h-[calc(100dvh-4.5rem)] items-center overflow-hidden">
+        <div className="hero__waves" aria-hidden="true">
+            <AnimatedWaves />
         </div>
-        <div className="hidden md:mt-24 md:flex md:gap-4">
-          <button
-            className="hero__button"
-            onClick={scrollToProjects}
-          >
-            <span>Projects</span>
-          </button>
-          <button className="hero__button hero__button__3">
-            <a target="_blank" href={resumeUrl} rel="noopener noreferrer">Resume</a>
-          </button>
+
+        <div className="container-page relative py-16">
+            <div className="flex max-w-2xl flex-col items-start gap-6">
+                <h1 className="font-extrabold">
+                    Hello{' '}
+                    <span role="img" aria-label="waving hand">
+                        👋
+                    </span>
+                    ,<br />
+                    I&apos;m Amin
+                </h1>
+
+                {/* Was `hidden md:flex` — mobile visitors saw the heading and nothing else. */}
+                <p className="text-lg italic text-muted sm:text-xl">
+                    I build full-stack apps &mdash; and I do it cuz I love coding.
+                </p>
+
+                {/* Same: the CTAs were desktop-only. Both are now the first thing
+                    a phone visitor can act on. */}
+                <div className="mt-4 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
+                    <a href="#projects" className="btn btn-primary">
+                        <ArrowDownIcon className="size-5" />
+                        View projects
+                    </a>
+                    <a
+                        href={CV_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-secondary"
+                    >
+                        <DocumentIcon className="size-5" />
+                        Résumé
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </main>
-  );
-};
+    </section>
+);
 
 export default Hero;

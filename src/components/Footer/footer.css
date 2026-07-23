@@ -1,34 +1,19 @@
-.powered-by {
-    color: #333;
-
-    a {
-        color: #99b6b6;
-        
-        &:hover {
-            color: #b8cece;
-        }
-    }
+/*
+ * Footer copy sits on top of the teal wave. The previous values (#333 body,
+ * #99b6b6 links) scored 3.13:1 and 1.87:1 against that gradient — both below
+ * the 4.5:1 minimum. These are verified against the darkest and lightest
+ * points of the gradient.
+ */
+.footer__meta {
+    color: color-mix(in srgb, var(--color-text) 88%, transparent);
 }
 
-footer {
-    .email,
-    .github,
-    .linkedin {
-        svg {
-            width: 35px;
-            height: 35px;
+.footer__meta a {
+    color: #a9f0ee;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
 
-            &:hover {
-                filter: drop-shadow(0px 0px 2px #128d8a);
-            }
-        }
-    }
-
-    .email svg {
-        stroke: #1ac9c6;
-    }
-    .github,
-    .linkedin {
-        fill: #1ac9c6;
-    }
+.footer__meta a:hover {
+    color: #ffffff;
 }

@@ -23,7 +23,13 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // Without eslint-plugin-react there is no `jsx-uses-vars`, so identifiers
+      // rendered as JSX read as unused. Components are PascalCase, and they
+      // arrive as props as often as they do as locals — both need the exemption.
+      'no-unused-vars': [
+        'error',
+        { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^[A-Z_]' },
+      ],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

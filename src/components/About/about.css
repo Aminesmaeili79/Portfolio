@@ -1,4 +1,51 @@
-.avatar img {
-    width: 400px;
-    /*aspect-ratio: 1/1;*/
+/*
+ * Replaces the tsparticles canvas that used to sit behind this word.
+ * That pulled in the @tsparticles engine and ran a permanent rAF loop with
+ * 1200 particles to decorate a single word; this is the same effect for 0 JS.
+ */
+.spark {
+    position: relative;
+    background-image: linear-gradient(
+        100deg,
+        var(--color-plum) 0%,
+        var(--color-accent) 45%,
+        var(--color-plum) 90%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: spark-pan 6s ease-in-out infinite alternate;
+}
+
+/* Soft bloom behind the word, painted rather than simulated */
+.spark::after {
+    content: '';
+    position: absolute;
+    inset: -30% -12%;
+    z-index: -1;
+    border-radius: 9999px;
+    background: radial-gradient(
+        ellipse at center,
+        color-mix(in srgb, var(--color-plum) 35%, transparent) 0%,
+        transparent 70%
+    );
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+@keyframes spark-pan {
+    from {
+        background-position: 0% 50%;
+    }
+    to {
+        background-position: 100% 50%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spark {
+        animation: none;
+        background-position: 0% 50%;
+    }
 }
